@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Ramaraja&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ramaraja&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <title>Pagina Web - E-Commerce</title>
     </head>
@@ -11,42 +15,82 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href="pages/catalogo.html">Mercado</a></li>
-                    <li><a href="pages/faqs.html">FAQs</a></li>
-                    <li><a href="pages/login.html">Loguearse</a></li>
-                    <li><a href="pages/register.html">Registrarse</a></li>
-                    <li><a href="pages/about.html">Acerca de nosotros</a></li>
-                    <li><img src="images/carrito.png" alt=""></li>
+                    <div id="itemsNavbar">
+                        <li class="navLink"><a href="index.html">Inicio</a></li>
+                        <li class="navLink"><a href="pages/catalogo.html">Mercado</a></li>
+                        <li class="navLink"><a href="pages/faqs.html">FAQs</a></li>
+                        <li class="navLink"><a href="pages/login.html">Loguearse</a></li>
+                        <li class="navLink"><a href="pages/register.html">Registrarse</a></li>
+                        <li class="navLink"><a href="pages/about.html">Acerca de nosotros</a></li>
+                    </div>
+                    <li><img id="carrito" src="images/carrito.png" alt=""></li>
                 </ul>
-                <div>
-                    <h1>E-Commerce</h1>
-                    <p>E-Commerce dedicado a sudamérica</p>
-                </div>
-            <label for="busqueda"><input type="search" id="busqueda" placeholder="Buscar elementos en el catálogo"><button>Buscar</button></label>
+            </nav>
+            <div id="divBuscador">
+                <h1>Zona Compra E-Commerce</h1>
+                <p>E-Commerce dedicado a sudamerica</p>
+                <label for="busqueda">
+                    <input type="search" id="busqueda" placeholder="Buscar elementos en el catalogo">
+                    <button>Buscar</button>
+                </label>
+            </div>
         </header>
         <hr>
         <main>
-            <div>
-                <h2>Listado de elementos</h2>
-                <div>
-                    <!--Elementos del slideshow para propaganda-->
-                    <img src="https://neilpatel.com/wp-content/uploads/2015/04/ecommerce.jpg" alt="">
+            <div id="containerSlide">
+                <h2>Slide de anuncios</h2>
+                <div id="slideshow">
+                    <ul >
+                        <li id="slide">
+                            <img src="https://neilpatel.com/wp-content/uploads/2015/04/ecommerce.jpg" alt="">
+                        </li>
+                        <li id="slide">
+                            <img src="https://d1ih8jugeo2m5m.cloudfront.net/2021/06/Ecommerce-Thumbnail.jpg" alt="">
+                        </li>
+                        <li id="slide">
+                            <img src="https://auren.com/ar/wp-content/uploads/2020/11/e.commerce1-1030x578-1.jpg" alt="">
+                        </li>
+                    </ul>
                 </div>
             </div>
             <hr>
-            <div>
+            <div id="recomendadosContainer">
                 <h2>Recomendados</h2>
-                <div>
+                <div id="recomendados">
                     <ul>
-                        <li><img src="https://www.lg.com/us/images/tvs/50pk540/gallery/large01.jpg" alt=""></li>
-                        <li><img src="https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" alt=""></li>
-                        <li><img src="https://jumboargentina.vtexassets.com/arquivos/ids/614663/Aceite-De-Girasol-Cocinero-900-Ml-1-32670.jpg?v=637409202878630000" alt=""></li>
-                        <li><img src="https://http2.mlstatic.com/D_NQ_NP_968821-MLA31587799913_072019-O.jpg" alt=""></li>
+                        <div class="itemDiv">                        
+                            <li class="itemRecomendado">
+                                <img src="https://www.lg.com/us/images/tvs/50pk540/gallery/large01.jpg" alt="">
+                                <hr>
+                                <span>$5.999</span>
+                            </li>
+                        </div>
+                        <div class="itemDiv">
+                            <li class="itemRecomendado">
+                                <img src="https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg" alt="">
+                                <hr>
+                                <span>$15.999</span>
+                            </li>
+                        </div>
+                        <div class="itemDiv">
+                            <li class="itemRecomendado">
+                                <img src="https://jumboargentina.vtexassets.com/arquivos/ids/614663/Aceite-De-Girasol-Cocinero-900-Ml-1-32670.jpg?v=637409202878630000" alt="">
+                                <hr>
+                                <span>$499</span>
+                            </li>
+                        </div>
+                        <div class="itemDiv">  
+                            <li class="itemRecomendado">
+                                <img src="https://http2.mlstatic.com/D_NQ_NP_968821-MLA31587799913_072019-O.jpg" alt="">
+                                <hr>
+                                <span>$1.999</span>
+                            </li>
+                        </div>
                     </ul>
                 </div>
             </div>
         </main>
         <br>
-        <footer>Copyright 2022 - Autor Ignacio Zarlenga</footer>
+        <footer><div>Copyright 2022 - Autor Ignacio Zarlenga</div></footer>
     </body>
 </html>
