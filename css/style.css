@@ -42,31 +42,37 @@ ul{
     display: inline-block;
     position: relative;
     margin: 15px 1%;
+    font-family: 'Akaya Kanadaka', cursive;
 }
-#divBuscador{
+#containerTitulos{
+    text-align: center;
     top: 50px;
     display: block;
-    left: 45%;
     position: sticky;
-    margin: 70px 0 20px 42.6% ;
+    margin: 70px auto 20px auto ;
 }
-#divBuscador h1{
+h1{
+    display: block;
+    text-align: center;
     font-family: 'Bebas Neue', cursive;
+    font-size: 50px;
 }
-#divBuscador p{
+#containerTitulos h2{
     font-family: 'Ramaraja', serif;
-    margin-left: 20px;
+
 }
-#divBuscador label{
-    margin-left: 10px;
+#containerTitulos label{
+    display: inherit;
+    width: auto;
+    margin-left: 2.5%;
 }
-#divBuscador label input, button{
+#containerTitulos label input, #containerTitulos label button{
     font-family: 'Ramaraja', serif;
 }
-#divBuscador label input {
+#containerTitulos label input {
     width: 250px;
 }
-#divBuscador label button {
+#containerTitulos label button {
     transform: translate(-50px,0);
 }
 #slideshow{
@@ -94,7 +100,7 @@ ul{
     width: 600px;
     margin-left: 33.5%;
 }
-h2{
+#containerSlide h2, #recomendadosContainer h2{
     
     display:block;
     font-family: 'Bebas Neue', cursive;
@@ -134,6 +140,8 @@ footer{
 footer div{
     color:white;
     margin: auto;
+    font-family: 'Hurricane', cursive;
+    font-size: 20px;
 }
 #recomendadosContainer{
     width: 100%;
