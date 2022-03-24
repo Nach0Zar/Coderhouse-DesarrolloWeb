@@ -4,7 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Bebas+Neue&family=Hurricane&family=Ramaraja&display=swap" rel="stylesheet">        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Bebas+Neue&family=Hurricane&family=Noto+Serif:wght@700&family=Ramaraja&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../css/style.css">
         <title>Loguearse - E-Commerce</title>
     </head>
@@ -30,20 +32,22 @@
         </header>
         <hr>
         <main>
-            <div>
-                <h2>Loguearse</h2>
+            <div id="loginDiv">
+                <h2>Login</h2>
                 <form action="">
-                    <label for="usuario">
-                        <img src="../images/usuario.png" alt="">
-                        <span>Nombre de usuario</span>
-                        <input type="text" id="usuario">
-                    </label>
-                    <label for="contrasenia">
-                        <img src="../images/password.png" alt="">
-                        <span>Contraseña</span>
-                        <input type="password" id="contrasenia">
-                    </label>
-                    <button>Loguearse</button>
+                    <div id="containerLabels">
+                        <label for="usuario" class="loginLabelForm">
+                            <img src="../images/usuario.png" alt="">
+                            <span>Nombre de usuario</span>
+                            <input type="text" id="usuario">
+                        </label>
+                        <label for="contrasenia" class="loginLabelForm">
+                            <img src="../images/password.png" alt="">
+                            <span>Contraseña</span>
+                            <input type="password" id="contrasenia">
+                        </label>
+                        <button id="botonLoginForm">Loguearse</button>
+                    </div>
                 </form>
             </div>
         </main>
