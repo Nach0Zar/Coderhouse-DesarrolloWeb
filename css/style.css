@@ -11,11 +11,9 @@ nav{
 }
 ul{
     margin-top: 0;
-}
-.navLink{
-    display: inline;
     list-style: none;
 }
+
 .navLink a{
     color:white;
     text-decoration:none;
@@ -24,17 +22,18 @@ ul{
     background-color: white;
     border-radius: 50px;
     height: 40px;
+    margin: -45px 0.5%;
+    margin-left: auto;
     float: right;
-    margin: 0.25% 1%;
 
 }
 #itemsNavbar{
-    display: block;
-    position: fixed;
-    left: 33%;
+    display: flex;
     height: 50px;
     width: 100%;
-    margin: 0;
+    margin: auto;
+    flex-flow: row nowrap;
+    justify-content: center;
 }
 .navLink{
     text-align: center;
@@ -103,7 +102,8 @@ h1{
 #containerSlide{
     height: 400px;
     width: 600px;
-    margin-left: 33.5%;
+    margin: auto;
+    grid-area: anuncios;
 }
 #containerSlide h2, #recomendadosContainer h2{
     
@@ -137,6 +137,7 @@ footer{
     background-color: black;
     height: 50px;
     width: 100%;
+    display: flex;
     text-decoration:none;
     text-align: center;
     padding: auto;
@@ -148,21 +149,29 @@ footer div{
     font-size: 20px;
 }
 #recomendadosContainer{
-    width: 100%;
-    margin: auto;
+    min-width: 50%;
+    max-width: 100%;
+    grid-area: recomendados;
 }
-#recomendados ul{
+#recomendados{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    gap: 10px;
+}
+/* #recomendados ul{
     list-style: none;
-    /* display: flex;  */
-}
+} */
 .itemDiv{
-    display: inline-block;
-    max-width: 440px;
-}
+    /* display: inline-block; */
+    max-width: 440px; 
+    min-width: 420px;
+} 
 
 .itemRecomendado{
     margin-bottom: 50px;
     overflow: hidden;
+    flex-shrink: 3;
 }
 .itemRecomendado hr{
     margin-top: 15px;
@@ -244,7 +253,6 @@ footer div{
     height: 450px;
     width: 500px;
     border-radius: 5%;
-    margin-right: 10px;
 }
 .preguntaDiv, #containerAboutus{
     border-radius: 25px;
@@ -272,7 +280,12 @@ footer div{
     margin: 10px 20px;
 }
 #catalogo{
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 9fr;
+    grid-column-gap: 10px;
+    grid-template-areas: 
+    "barraLateral listaDeObjetos"
+    ;
 }
 #listaDeObjetos, #barraLateral{
     display: inline-block;
@@ -282,12 +295,18 @@ footer div{
     border: 1px lightgrey solid;
 }
 #barraLateral{
-    margin-bottom: 10px;
+    /* margin-bottom: 10px;
     display: block;
-    float: left;
+    float: left; */
+    grid-area: barraLateral;
+    margin-left: 5px;
 }
 #listaDeObjetos{
     text-align: start;
+    grid-area: listaDeObjetos;
+}
+.elemento{
+    display: flex;
 }
 .categoria span, .nombreElemento, .descripcionElemento{
     font-family: 'Bebas Neue', cursive;
@@ -313,4 +332,28 @@ footer div{
 }
 .containerTextos{
     margin-left: 10px;
+}
+#bodyIndex{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "headerIndex"
+    "anuncios"
+    "recomendados"
+    "footer";
+}
+#headerIndex{
+    grid-area: headerIndex;
+}
+
+@media screen and (min-width: 1200px){
+    .elemento{
+        flex-flow: row nowrap;
+    }
+}
+@media screen and (max-width: 600px){
+    .elemento{
+        flex-flow: column wrap;
+    }
 }
