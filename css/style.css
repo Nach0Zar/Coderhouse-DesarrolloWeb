@@ -72,10 +72,11 @@ h1{
     font-family: 'Ramaraja', serif;
 }
 #containerTitulos label input, #containerBusqueda label input {
-    width: 250px;
+    width: 210px;
+    height: 2.5rem;
 }
 #containerTitulos label button, #containerBusqueda label button {
-    transform: translate(-50px,0);
+    /*transform: translate(-50px,0);*/
 }
 #slideshow{
     width: 100%;
