@@ -75,10 +75,6 @@ h1{
     width: 210px;
     height: 2.5rem;
 }
-/*
-#containerTitulos label button, #containerBusqueda label button {
-    transform: translate(-50px,0);
-}*/
 #slideshow{
     width: 100%;
     height: 300px;
@@ -135,8 +131,6 @@ h1{
     }
 
 }
-
-/*
 footer{
     background-color: black;
     height: 50px;
@@ -151,8 +145,7 @@ footer div{
     margin: auto;
     font-family: 'Hurricane', cursive;
     font-size: 20px;
-}*/
-
+}
 #recomendadosContainer{
     min-width: 50%;
     max-width: 100%;
