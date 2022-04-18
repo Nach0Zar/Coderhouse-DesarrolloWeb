@@ -14,10 +14,10 @@ ul{
     list-style: none;
 }
 
-.navLink a{
+/*.navlink a{
     color:white;
     text-decoration:none;
-}
+}*/
 #carrito{
     background-color: white;
     border-radius: 50px;
@@ -37,11 +37,12 @@ ul{
 }
 .navLink{
     text-align: center;
-    display: inline-block;
+    /*display: inline-block;
     position: relative;
-    margin: 15px 1%;
+    margin: 15px 1%;*/
     font-family: 'Akaya Kanadaka', cursive;
 }
+
 #containerTitulos, #containerBusqueda{
     text-align: center;
     display: block;
