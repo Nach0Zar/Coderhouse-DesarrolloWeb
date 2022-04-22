@@ -335,6 +335,7 @@ footer div{
     min-width: 200px;
     display: inline-block;
     vertical-align: middle;
+    margin: auto auto;
 }
 .containerTextos{
     margin-left: 10px;
