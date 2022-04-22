@@ -330,15 +330,16 @@ footer div{
     height: 150px;
     width: auto;
     max-width: 200px;
+    justify-content: center;
 }
 .containerImagen, .containerTextos{
     min-width: 200px;
     display: inline-block;
     vertical-align: middle;
-    margin: auto auto;
 }
 .containerTextos{
     margin-left: 10px;
+    margin: auto auto auto 0.5%;
 }
 #bodyIndex{
     display: grid;
