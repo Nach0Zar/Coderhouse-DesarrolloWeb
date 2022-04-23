@@ -157,6 +157,7 @@ h1 {
   margin: auto;
   color: grey;
   font-size: 30px;
+  text-align: center;
 }
 #recomendadosContainer #recomendados .itemRecomendado img {
   height: 300px;
