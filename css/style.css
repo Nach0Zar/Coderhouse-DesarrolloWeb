@@ -216,7 +216,6 @@ h1 {
   height: 50px;
   width: auto;
   margin-right: 50px;
-  transform: translateY(40%);
 }
 .registerLabelForm span, .loginLabelForm span {
   display: inline-block;
