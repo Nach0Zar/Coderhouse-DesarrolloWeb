@@ -1,366 +1,349 @@
-html, body{
-    margin: 0;
-}
-nav{
-    background-color: black;
-    height: 50px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1;
-}
-ul{
-    margin-top: 0;
-    list-style: none;
+html, body {
+  margin: 0;
 }
 
-/*.navlink a{
-    color:white;
-    text-decoration:none;
-}*/
-#carrito{
-    background-color: white;
-    border-radius: 50px;
-    height: 40px;
-    margin: -45px 0.5%;
-    margin-left: auto;
-    float: right;
-
+nav {
+  background-color: black;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
-#itemsNavbar{
-    display: flex;
-    height: 50px;
-    width: 100%;
-    margin: auto;
-    flex-flow: row nowrap;
-    justify-content: center;
-}
-.navLink{
-    text-align: center;
-    /*display: inline-block;
-    position: relative;
-    margin: 15px 1%;*/
-    font-family: 'Akaya Kanadaka', cursive;
+nav .navLink {
+  text-align: center;
+  font-family: "Akaya Kanadaka", cursive;
 }
 
-#containerTitulos, #containerBusqueda{
-    text-align: center;
-    display: block;
-    position: sticky;
+ul {
+  margin-top: 0;
+  list-style: none;
 }
-#containerTitulos{
-    margin: 70px auto 20px auto ;
-}
-#containerBusqueda{
-    margin-bottom: 20px;
-}
-h1{
-    display: block;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 50px;
-}
-#containerTitulos h2, #containerBusqueda h2{
-    font-family: 'Ramaraja', serif;
 
+#carrito {
+  background-color: white;
+  border-radius: 50px;
+  height: 40px;
+  margin: -45px 0.5%;
+  margin-left: auto;
+  float: right;
 }
-#containerTitulos label, #containerBusqueda label{
-    display: inherit;
-    width: auto;
-    margin-left: 2.5%;
+
+#containerTitulos, #containerBusqueda {
+  text-align: center;
+  display: block;
+  position: sticky;
 }
-#containerTitulos label input, #containerTitulos label button,#containerBusqueda label input, #containerBusqueda label button{
-    font-family: 'Ramaraja', serif;
+#containerTitulos h2, #containerTitulos input, #containerTitulos button, #containerBusqueda h2, #containerBusqueda input, #containerBusqueda button {
+  font-family: "Ramaraja", serif;
 }
-#containerTitulos label input, #containerBusqueda label input {
-    width: 210px;
-    height: 2.5rem;
+#containerTitulos label, #containerBusqueda label {
+  display: inherit;
+  width: auto;
+  margin-left: 2.5%;
 }
-/*
-#containerTitulos label button, #containerBusqueda label button {
-    transform: translate(-50px,0);
-}*/
-#slideshow{
-    width: 100%;
-    height: 300px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 3%;
+#containerTitulos input, #containerBusqueda input {
+  width: 210px;
+  height: 2.5rem;
 }
-#slideshow ul{
-    padding: 0;
-    display: flex;
-    width: 300%;
-    animation: rotar 20s infinite;
+
+#containerTitulos {
+  margin: 70px auto 20px auto;
 }
-#slide{
-    width: 100%;
-    list-style: none;
+
+#containerBusqueda {
+  margin-bottom: 20px;
 }
-#slide img {
-    width: auto;
-    height: 300px;
-    width: 600px;
+
+h1 {
+  display: block;
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+  font-size: 50px;
 }
-#containerSlide{
-    height: 400px;
-    width: 600px;
-    margin: auto;
-    grid-area: anuncios;
+
+#containerSlide {
+  height: 400px;
+  width: 600px;
+  margin: auto;
+  grid-area: anuncios;
 }
-#containerSlide h2, #recomendadosContainer h2{
-    
-    display:block;
-    font-family: 'Bebas Neue', cursive;
-    margin: 20px;
-    text-align: center;
+#containerSlide #slideshow {
+  width: 100%;
+  height: 300px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 3%;
 }
+#containerSlide #slideshow ul {
+  padding: 0;
+  display: flex;
+  width: 300%;
+  animation: rotar 20s infinite;
+}
+#containerSlide #slideshow #slide {
+  width: 100%;
+  list-style: none;
+}
+#containerSlide #slideshow #slide img {
+  width: auto;
+  height: 300px;
+  width: 600px;
+}
+
+#containerSlide h2 {
+  display: block;
+  font-family: "Bebas Neue", cursive;
+  margin: 20px;
+  text-align: center;
+}
+
+#recomendadosContainer h2 {
+  display: block;
+  font-family: "Bebas Neue", cursive;
+  margin: 20px;
+  text-align: center;
+}
+
 @keyframes rotar {
-    0%{
-        margin-left: 0;
-    }
-    25%{
-        margin-left: 0;
-    }
-    30%{
-        margin-left: -100%;
-    }
-    55%{
-        margin-left: -100%;
-    }
-    60%{
-        margin-left: -200%;
-    }
-    85%{
-        margin-left: -200%;
-    }
-
+  0% {
+    margin-left: 0;
+  }
+  25% {
+    margin-left: 0;
+  }
+  30% {
+    margin-left: -100%;
+  }
+  55% {
+    margin-left: -100%;
+  }
+  60% {
+    margin-left: -200%;
+  }
+  85% {
+    margin-left: -200%;
+  }
+}
+#recomendadosContainer {
+  min-width: 50%;
+  max-width: 100%;
+  grid-area: recomendados;
+}
+#recomendadosContainer #recomendados {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  gap: 10px;
+}
+#recomendadosContainer #recomendados .itemDiv {
+  max-width: 440px;
+  min-width: 420px;
+  height: 450px;
+  width: 500px;
+  border-radius: 5%;
+}
+#recomendadosContainer #recomendados .itemRecomendado {
+  margin-bottom: 50px;
+  overflow: hidden;
+  flex-shrink: 3;
+}
+#recomendadosContainer #recomendados .itemRecomendado hr {
+  margin-top: 15px;
+  border-color: lightgrey;
+}
+#recomendadosContainer #recomendados .itemRecomendado span {
+  display: block;
+  margin: auto;
+  color: grey;
+  font-size: 30px;
+}
+#recomendadosContainer #recomendados .itemRecomendado img {
+  height: 300px;
+  display: block;
+  width: auto;
+  margin: 10% auto 0 auto;
 }
 
-/*
-footer{
-    background-color: black;
-    height: 50px;
-    width: 100%;
-    display: flex;
-    text-decoration:none;
-    text-align: center;
-    padding: auto;
-}
-footer div{
-    color:white;
-    margin: auto;
-    font-family: 'Hurricane', cursive;
-    font-size: 20px;
-}*/
-
-#recomendadosContainer{
-    min-width: 50%;
-    max-width: 100%;
-    grid-area: recomendados;
-}
-#recomendados{
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    gap: 10px;
-}
-/* #recomendados ul{
-    list-style: none;
-} */
-.itemDiv{
-    /* display: inline-block; */
-    max-width: 440px; 
-    min-width: 420px;
-} 
-
-.itemRecomendado{
-    margin-bottom: 50px;
-    overflow: hidden;
-    flex-shrink: 3;
-}
-.itemRecomendado hr{
-    margin-top: 15px;
-    border-color: lightgrey;
-}
-.itemRecomendado span{
-    display: block;
-    margin: auto;
-    text-align: center;
-    color: grey;
-    font-size: 30px;
-    margin-top: 8%;
-}
-.itemRecomendado img{
-    height: 300px;
-    display:block;
-    width: auto;
-    margin: 10% auto 0 auto;
-}
-.itemDiv, .preguntaDiv, #loginDiv, #registerDiv, #containerAboutus{
-    border: 1px lightgrey solid;
-}
-#loginDiv, #registerDiv{
-    display: table;
-    width: 40%;
-    border-radius: 10px;
-}
-#loginDiv{
-    margin: 93px auto;
-}
-#registerDiv{
-    margin: 39.5px auto;
-}
-#loginDiv h2, #registerDiv h2{
-    display: block;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-}
-#containerLabels{
-    display: table;
-    margin: auto auto;
-}
-.registerLabelForm, .loginLabelForm{
-    display: table;
-    vertical-align: middle;
-}
-.loginLabelForm{
-    margin: 30px;
-}
-.registerLabelForm{
-    margin: 15px;
-}
-.registerLabelForm img, .loginLabelForm img{
-    height: 50px;
-    width: auto;
-    margin-right: 50px;
-    transform: translateY(40%);
-}
-.registerLabelForm span, .loginLabelForm span{
-    display: inline-block;
-    text-align: center;
-    min-width: 170px;
-    margin-right: 50px;
-    font-family: 'Noto Serif', serif;
-}
-#botonLoginForm, #botonRegisterForm{
-    display: table;
-    height: 50px;
-    width: 150px;
-    font-family: 'Bebas Neue', cursive;
-}
-#botonLoginForm{
-    margin: 100px auto 60px;
-}
-#botonRegisterForm{
-    margin: 50px auto 30px;
-}
-.itemDiv{
-    height: 450px;
-    width: 500px;
-    border-radius: 5%;
-}
-.preguntaDiv, #containerAboutus{
-    border-radius: 25px;
-    margin: 30px 30px;
-}
-.itemDiv:hover, .preguntaDiv:hover, #loginDiv:hover, #registerDiv:hover, #containerAboutus:hover{
-    box-shadow: 0 0 11px rgba(33,33,33,.4); 
-}
-.preguntaDiv h3, .preguntaDiv p, #containerAboutus h2, #containerAboutus p{
-    margin: 20px 30px;
-}
-#bloqueTextoImagen{
-    display: grid;
-    grid-template-columns: auto auto;
-}
-#bloqueTextoImagen div{
-    margin: 10px 30px 0 0;
-} 
-#bloqueTextoImagen div img{
-    height: 500px;
-    width: auto;
-    float: right
-}
-#bloqueTextoImagen, #bloqueTexto{
-    margin: 10px 20px;
-}
-#catalogo{
-    display: grid;
-    grid-template-columns: 1fr 9fr;
-    grid-column-gap: 10px;
-    grid-template-areas: 
-    "barraLateral listaDeObjetos"
-    ;
-}
-#listaDeObjetos, #barraLateral{
-    display: inline-block;
-    padding: 10px 10px;
-}
-.elemento, #barraLateral{
-    border: 1px lightgrey solid;
-}
-#barraLateral{
-    /* margin-bottom: 10px;
-    display: block;
-    float: left; */
-    grid-area: barraLateral;
-    margin-left: 5px;
-}
-#listaDeObjetos{
-    text-align: start;
-    grid-area: listaDeObjetos;
-}
-.elemento{
-    display: flex;
-}
-.categoria span, .nombreElemento, .descripcionElemento{
-    font-family: 'Bebas Neue', cursive;
-}
-.categoria>span{
-    font-size: medium;
-}
-.subCategoria>span{
-    font-size: small;
-}
-#listaDeObjetos{
-    margin-right: 6.5%;
-}
-.containerImagen, .containerImagen>img{
-    height: 150px;
-    width: auto;
-    max-width: 200px;
-    justify-content: center;
-}
-.containerImagen, .containerTextos{
-    min-width: 200px;
-    display: inline-block;
-    vertical-align: middle;
-}
-.containerTextos{
-    margin: auto auto auto 0.5%;
-}
-#bodyIndex{
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: 
-    "headerIndex"
-    "anuncios"
-    "recomendados"
-    "footer";
-}
-#headerIndex{
-    grid-area: headerIndex;
+.itemDiv, .preguntaDiv, #loginDiv, #registerDiv, #containerAboutus {
+  border: 1px lightgrey solid;
 }
 
-@media screen and (min-width: 1200px){
-    .elemento{
-        flex-flow: row nowrap;
-    }
+#loginDiv, #registerDiv {
+  display: table;
+  width: 40%;
+  border-radius: 10px;
 }
-@media screen and (max-width: 600px){
-    .elemento{
-        flex-flow: column wrap;
-    }
+#loginDiv h2, #registerDiv h2 {
+  display: block;
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
 }
+
+#loginDiv {
+  margin: 93px auto;
+}
+
+#registerDiv {
+  margin: 39.5px auto;
+}
+
+#containerLabels {
+  display: table;
+  margin: auto auto;
+}
+
+.registerLabelForm, .loginLabelForm {
+  display: table;
+  vertical-align: middle;
+}
+.registerLabelForm img, .loginLabelForm img {
+  height: 50px;
+  width: auto;
+  margin-right: 50px;
+  transform: translateY(40%);
+}
+.registerLabelForm span, .loginLabelForm span {
+  display: inline-block;
+  text-align: center;
+  min-width: 170px;
+  margin-right: 50px;
+  font-family: "Noto Serif", serif;
+}
+.registerLabelForm #botonLoginForm, .registerLabelForm #botonRegisterForm, .loginLabelForm #botonLoginForm, .loginLabelForm #botonRegisterForm {
+  display: table;
+  height: 50px;
+  width: 150px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.loginLabelForm {
+  margin: 30px;
+}
+.loginLabelForm #botonLoginForm {
+  margin: 100px auto 60px;
+}
+
+.registerLabelForm {
+  margin: 15px;
+}
+.registerLabelForm #botonRegisterForm {
+  margin: 50px auto 30px;
+}
+
+.preguntaDiv, #containerAboutus {
+  border-radius: 25px;
+  margin: 30px 30px;
+}
+
+.itemDiv:hover, .preguntaDiv:hover, #loginDiv:hover, #registerDiv:hover, #containerAboutus:hover {
+  box-shadow: 0 0 11px 0 0 11px rgba(33, 33, 33, 0.4);
+}
+
+.preguntaDiv h3, .preguntaDiv p, #containerAboutus h2, #containerAboutus p {
+  margin: 20px 30px;
+}
+
+#bloqueTextoImagen {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+#bloqueTextoImagen div {
+  margin: 10px 30px 0 0;
+}
+#bloqueTextoImagen div img {
+  height: 500px;
+  width: auto;
+  float: right;
+}
+
+#bloqueTextoImagen, #bloqueTexto {
+  margin: 10px 20px;
+}
+
+#catalogo {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  grid-column-gap: 10px;
+  grid-template-areas: "barraLateral listaDeObjetos";
+}
+
+#listaDeObjetos, #barraLateral {
+  display: inline-block;
+  padding: 10px 10px;
+}
+
+.elemento, #barraLateral {
+  border: 1px lightgrey solid;
+}
+
+#barraLateral {
+  grid-area: barraLateral;
+  margin-left: 5px;
+}
+
+#listaDeObjetos {
+  text-align: start;
+  grid-area: listaDeObjetos;
+}
+
+.elemento {
+  display: flex;
+}
+
+.categoria span, .nombreElemento, .descripcionElemento {
+  font-family: "Bebas Neue", cursive;
+}
+
+.categoria > span {
+  font-size: medium;
+}
+
+.subCategoria > span {
+  font-size: small;
+}
+
+#listaDeObjetos {
+  margin-right: 6.5%;
+}
+
+.containerImagen, .containerImagen > img {
+  height: 150px;
+  width: auto;
+  max-width: 200px;
+  justify-content: center;
+}
+
+.containerImagen, .containerTextos {
+  min-width: 200px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.containerTextos {
+  margin: auto auto auto 0.5%;
+}
+
+#bodyIndex {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "headerIndex" "anuncios" "recomendados" "footer";
+}
+
+#headerIndex {
+  grid-area: headerIndex;
+}
+
+@media screen and (min-width: 1200px) {
+  .elemento {
+    flex-flow: row nowrap;
+  }
+}
+@media screen and (max-width: 600px) {
+  .elemento {
+    flex-flow: column wrap;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
