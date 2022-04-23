@@ -105,6 +105,20 @@ h1 {
   text-align: center;
 }
 
+#loginDiv h2 {
+  display: block;
+  font-family: "Bebas Neue", cursive;
+  margin: 20px;
+  text-align: center;
+}
+
+#registerDiv h2 {
+  display: block;
+  font-family: "Bebas Neue", cursive;
+  margin: 20px;
+  text-align: center;
+}
+
 @keyframes rotar {
   0% {
     margin-left: 0;
@@ -211,25 +225,28 @@ h1 {
   margin-right: 50px;
   font-family: "Noto Serif", serif;
 }
-.registerLabelForm #botonLoginForm, .registerLabelForm #botonRegisterForm, .loginLabelForm #botonLoginForm, .loginLabelForm #botonRegisterForm {
+
+.loginLabelForm {
+  margin: 30px;
+}
+
+.botonRegistroLogin, #botonRegisterForm, #botonLoginForm {
   display: table;
   height: 50px;
   width: 150px;
   font-family: "Bebas Neue", cursive;
 }
 
-.loginLabelForm {
-  margin: 30px;
-}
-.loginLabelForm #botonLoginForm {
+#botonLoginForm {
   margin: 100px auto 60px;
+}
+
+#botonRegisterForm {
+  margin: 50px auto 30px;
 }
 
 .registerLabelForm {
   margin: 15px;
-}
-.registerLabelForm #botonRegisterForm {
-  margin: 50px auto 30px;
 }
 
 .preguntaDiv, #containerAboutus {

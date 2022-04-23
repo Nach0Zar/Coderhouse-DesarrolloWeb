@@ -89,12 +89,12 @@ h1{
     }
 }
 
-@each $container in containerSlide, recomendadosContainer{
+@each $container in containerSlide, recomendadosContainer, loginDiv, registerDiv{
   ##{$container} h2{
     display:block;
     font-family: 'Bebas Neue', cursive;
-   margin: 20px;
-   text-align: center;
+    margin: 20px;
+    text-align: center;
     }
 }
 
@@ -136,7 +136,6 @@ h1{
             width: 500px;
             border-radius: 5%;
         } 
-        
         .itemRecomendado{
             margin-bottom: 50px;
             overflow: hidden;
@@ -201,25 +200,30 @@ h1{
         margin-right: 50px;
         font-family: 'Noto Serif', serif;
     }
-    #botonLoginForm, #botonRegisterForm{
-        display: table;
-        height: 50px;
-        width: 150px;
-        font-family: 'Bebas Neue', cursive;
-    }
 }
+
 .loginLabelForm{
     margin: 30px;
-    #botonLoginForm{
-        margin: 100px auto 60px;
-    }
+}
+.botonRegistroLogin{
+    display: table;
+    height: 50px;
+    width: 150px;
+    font-family: 'Bebas Neue', cursive;
+
+}
+#botonLoginForm{
+    @extend .botonRegistroLogin;
+    margin: 100px auto 60px;
+}
+#botonRegisterForm{
+    @extend .botonRegistroLogin;
+    margin: 50px auto 30px;
 }
 .registerLabelForm{
     margin: 15px;
-    #botonRegisterForm{
-        margin: 50px auto 30px;
-    }
 }
+
 .preguntaDiv, #containerAboutus{
     border-radius: 25px;
     margin: 30px 30px;
