@@ -179,29 +179,24 @@ h1{
         text-align: center;
         font-family: 'Bebas Neue', cursive;
     }
+    img{
+        @include size(auto, 50px);
+    }
 }
 #loginDiv{
     margin: 93px auto;
+    
 }
 #registerDiv{
     margin: 39.5px auto;
 }
-#containerLabels{
-    display: table;
-    margin: auto auto;
-}
 .registerLabelForm, .loginLabelForm{
-    display: table;
-    vertical-align: middle;
-    img{
-        @include size(auto, 50px);
-        margin-right: 50px;
-    }
+    display: flex;
+    justify-content: space-evenly;
     span{
-        display: inline-block;
-        text-align: center;
+        display: inline-flex;
+        align-items: center;
         min-width: 170px;
-        margin-right: 50px;
         font-family: 'Noto Serif', serif;
     }
 }
