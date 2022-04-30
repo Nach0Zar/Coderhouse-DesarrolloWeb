@@ -2,10 +2,14 @@
 html, body{
     margin: 0;
 }
+@mixin size($width, $height){
+    width: $width;
+    height: $height;
+}
+
 nav{
     background-color: $negro;
-    height: 50px;
-    width: 100%;
+    @include size(100%, 50px);
     position: fixed;
     top: 0;
     z-index: 1;
@@ -21,7 +25,7 @@ ul{
 #carrito{
     background-color: $blanco;
     border-radius: 50px;
-    height: 40px;
+    @include size(auto, 40px);
     margin: -45px 0.5%;
     margin-left: auto;
     float: right;
@@ -37,12 +41,11 @@ ul{
     }
     label{
         display: inherit;
-        width: auto;
+        @include size(auto, auto);
         margin-left: 2.5%;
     }
     input{
-        width: 210px;
-        height: 2.5rem;
+        @include size(210px, 2.5rem);
     }
 }
 #containerTitulos{
@@ -51,30 +54,34 @@ ul{
 #containerBusqueda{
     margin-bottom: 20px;
 }
-
+$estilo:(
+    displayText: block,
+    alignText: center,
+    font-h1: 'Bebas Neue',
+    font-cursive: cursive,
+    size50px: 50px
+);
 h1{
-    display: block;
-    text-align: center;
-    font-family: 'Bebas Neue', cursive;
-    font-size: 50px;
+    display: map-get($estilo, displayText);
+    text-align: map-get($estilo, alignText);
+    font-family: map-get($estilo, font-h1), map-get($estilo, font-cursive);
+    font-size: map-get($estilo, size50px);
 }
 
 
 #containerSlide{
-    height: 400px;
-    width: 600px;
+    @include size(600px, 400px);
     margin: auto;
     grid-area: anuncios;
     #slideshow{
-        width: 100%;
-        height: 300px;
+        @include size(100%, 300px);
         margin: auto;
         overflow: hidden;
         border-radius: 3%;
         ul{
             padding: 0;
             display: flex;
-            width: 300%;
+            @include size(300%, auto);
             animation: rotar 20s infinite;
         }
         #slide{
@@ -132,8 +139,7 @@ h1{
         .itemDiv{
             max-width: 440px; 
             min-width: 420px;
-            height: 450px;
-            width: 500px;
+            @include size(450px, 500px);
             border-radius: 5%;
         } 
         .itemRecomendado{
@@ -152,9 +158,8 @@ h1{
                 text-align: center;
             }
             img{
-                height: 300px;
+                @include size(auto, 300px);
                 display:block;
-                width: auto;
                 margin: 10% auto 0 auto;
             }
         }
@@ -167,6 +172,7 @@ h1{
 #loginDiv, #registerDiv{
     display: table;
     width: 40%;
+    @include size(40%, auto);
     border-radius: 10px;
     h2{
         display: block;
@@ -188,8 +194,7 @@ h1{
     display: table;
     vertical-align: middle;
     img{
-        height: 50px;
-        width: auto;
+        @include size(auto, 50px);
         margin-right: 50px;
     }
     span{
@@ -206,8 +211,7 @@ h1{
 }
 .botonRegistroLogin{
     display: table;
-    height: 50px;
-    width: 150px;
+    @include size(150px, 50px);
     font-family: 'Bebas Neue', cursive;
 
 }
@@ -239,8 +243,7 @@ h1{
     div{
         margin: 10px 30px 0 0;
         img{
-            height: 500px;
-            width: auto;
+            @include size(auto, 500px);
             float: right
         }
     } 
@@ -277,18 +280,20 @@ h1{
 .categoria span, .nombreElemento, .descripcionElemento{
     font-family: 'Bebas Neue', cursive;
 }
-.categoria>span{
-    font-size: medium;
-}
-.subCategoria>span{
-    font-size: small;
+$spans:(
+    categoria: medium,
+    subCategoria: small
+);
+@each $titulo, $tamanio in $spans{
+    .#{$titulo}>span{
+        font-size: $tamanio;
+    }
 }
 #listaDeObjetos{
     margin-right: 6.5%;
 }
 .containerImagen, .containerImagen>img{
-    height: 150px;
-    width: auto;
+    @include size(auto, 150px);
     max-width: 200px;
     justify-content: center;
 }
