@@ -27,7 +27,6 @@ ul {
   height: 40px;
   margin: -45px 0.5%;
   margin-left: auto;
-  float: right;
 }
 
 #containerTitulos, #containerBusqueda {
@@ -246,34 +245,28 @@ h1 {
   margin: 15px;
 }
 
+#containerAboutus {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
 .preguntaDiv, #containerAboutus {
   border-radius: 25px;
   margin: 30px 30px;
 }
 
 .itemDiv:hover, .preguntaDiv:hover, #loginDiv:hover, #registerDiv:hover, #containerAboutus:hover {
-  box-shadow: 0 0 11px 0 0 11px rgba(33, 33, 33, 0.4);
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.4);
 }
 
-.preguntaDiv h3, .preguntaDiv p, #containerAboutus h2, #containerAboutus p {
+.preguntaDiv h3, .preguntaDiv p, #containerAboutus h2, #containerAboutus h3 #containerAboutus p {
   margin: 20px 30px;
 }
 
-#bloqueTextoImagen {
-  display: grid;
-  grid-template-columns: auto auto;
-}
-#bloqueTextoImagen div {
-  margin: 10px 30px 0 0;
-}
-#bloqueTextoImagen div img {
-  width: auto;
-  height: 500px;
-  float: right;
-}
-
-#bloqueTextoImagen, #bloqueTexto {
+#bloqueTexto {
   margin: 10px 20px;
+  text-align: center;
 }
 
 #catalogo {
@@ -306,7 +299,17 @@ h1 {
   display: flex;
 }
 
-.categoria span, .nombreElemento, .descripcionElemento {
+.tituloprecio {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.precioElemento {
+  margin-right: 5px;
+}
+
+.categoria span, .nombreElemento, .descripcionElemento, .precioElemento {
   font-family: "Bebas Neue", cursive;
 }
 
@@ -331,6 +334,7 @@ h1 {
 
 .containerImagen, .containerTextos {
   min-width: 200px;
+  width: 100%;
   display: inline-block;
   vertical-align: middle;
 }
