@@ -262,13 +262,29 @@ h1{
     text-align: start;
     grid-area: listaDeObjetos;
 }
+#resumenCarrito{
+    max-width: 500px;
+    width: 500px;
+}
+#listado{
+    display: flex;
+    justify-content: space-evenly;
+    column-gap: 50px;
+}
 .elemento{
     display: flex;
 }
-.tituloprecio{
+.tituloprecio, .tituloPrecioCarrito, .containerElementosResumen{
     display: flex;
-    flex-flow: row wrap;
     justify-content: space-between;
+}
+.tituloprecio, .containerElementosResumen{
+    flex-flow: row wrap;
+}
+.tituloPrecioCarrito{
+    flex-flow: row nowrap;
+    margin: 0 15px;
+
 }
 .precioElemento{
     margin-right: 5px;
@@ -326,3 +342,62 @@ $spans:(
         flex-flow: column wrap;
     }
 }
+
+// ----------------------------------------
+// STYLES THAT MAKE THE TORN RECEIPT EFFECT
+// ----------------------------------------
+.receipt {
+    $triangle-size: 4px;
+    $stop1: $triangle-size * 1.42;
+    $stop2: $triangle-size * 0.7;
+    $stop1r: $stop1 + 0.01;
+    $stop2r: $stop2 + 0.01;
+    background: 
+      linear-gradient(135deg, transparent #{$stop1}, white #{$stop1r}) top left,
+      linear-gradient(45deg, white #{$stop2}, transparent #{$stop2r}) top left,
+      linear-gradient(135deg, white #{$stop2}, transparent #{$stop2r}) bottom left,
+      linear-gradient(45deg, transparent #{$stop1}, white #{$stop1r}) bottom left;
+    background-repeat: repeat-x;
+    background-size: ($triangle-size * 2) $triangle-size;
+    padding: $triangle-size 0;
+  
+    &-list {
+      // You could add another linear-gradient for the white background
+      // but background on this child div keeps the code MUCH simpler
+      background-color: white;
+    }
+  }
+  
+  // -------------------
+  // STYLES FOR THE DEMO
+  // -------------------
+  html {
+    background: #eee;
+    padding: 20vh 5vw;
+  }
+  
+  .receipt {
+    filter: drop-shadow(0 2px 1px rgba(#000, 0.1));
+    max-width: 320px;
+    margin: 0 auto;
+  
+    &-list {
+      background-color: #fff;
+      padding: 30px;
+    }
+  
+    &-item {
+      border-bottom: 0.5px dashed #ccc;
+      line-height: 1;
+      overflow: hidden;
+      font-family: monospace;
+      font-size: 16px;
+      
+      &:not(:first-child) {
+        margin-top: 1rem;
+      }
+    }
+    
+    &-label { float: left; }
+    &-value { float: right; }
+  }

@@ -295,14 +295,32 @@ h1 {
   grid-area: listaDeObjetos;
 }
 
+#resumenCarrito {
+  max-width: 500px;
+  width: 500px;
+}
+
+#listado {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .elemento {
   display: flex;
 }
 
-.tituloprecio {
+.tituloprecio, .tituloPrecioCarrito, .containerElementosResumen {
   display: flex;
-  flex-flow: row wrap;
   justify-content: space-between;
+}
+
+.tituloprecio, .containerElementosResumen {
+  flex-flow: row wrap;
+}
+
+.tituloPrecioCarrito {
+  flex-flow: row nowrap;
+  margin: 0 15px;
 }
 
 .precioElemento {
@@ -363,6 +381,42 @@ h1 {
   .elemento {
     flex-flow: column wrap;
   }
+}
+.receipt {
+  background: linear-gradient(135deg, transparent 5.68px, white 5.69px) top left, linear-gradient(45deg, white 2.8px, transparent 2.81px) top left, linear-gradient(135deg, white 2.8px, transparent 2.81px) bottom left, linear-gradient(45deg, transparent 5.68px, white 5.69px) bottom left;
+  background-repeat: repeat-x;
+  background-size: 8px 4px;
+  padding: 4px 0;
+}
+.receipt-list {
+  background-color: white;
+}
+
+.receipt {
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
+  min-width: 320px;
+  margin: 0 auto;
+  height: auto;
+}
+.receipt-list {
+  background-color: #fff;
+  padding: 30px;
+}
+.receipt-item {
+  border-bottom: 0.5px dashed #ccc;
+  line-height: 1;
+  overflow: hidden;
+  font-family: monospace;
+  font-size: 16px;
+}
+.receipt-item:not(:first-child) {
+  margin-top: 1rem;
+}
+.receipt-label {
+  float: left;
+}
+.receipt-value {
+  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */
