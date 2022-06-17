@@ -61,4 +61,4 @@ const articuloUno = crearArticulo();
 carrito.agregarArticulo(articuloUno);
 const articuloDos = crearArticulo();
 carrito.agregarArticulo(articuloDos);
-alert("El valor total fue divido en 12 cuotas de $" + calculador.calcularCuotas(12));
+alert("El valor total fue divido en 12 cuotas de $" + calculador.calcularCuotas(12) + " cada una.");
