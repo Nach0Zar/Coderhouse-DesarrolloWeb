@@ -1,3 +1,4 @@
+//esta funcion podrá cambiar cuando veamos como interactuar con el HTML
 function crearArticulo(){
     let nombreArticulo=prompt("Ingrese el nombre del articulo");
     while(nombreArticulo==''){
@@ -13,6 +14,7 @@ function crearArticulo(){
         precio=parseInt(prompt("Ingrese un valor positivo para el precio del articulo"));
     }
     const articuloNuevo = new Articulo(nombreArticulo, descripcion, precio);
+    alert("Se agregó exitosamente el artículo al carrito de compras.")
     return articuloNuevo;
 }
 
@@ -34,7 +36,7 @@ class CarritoCompras{
         this.precioTotal += articulo.precio;
     }
     removerArticulo(articulo){
-        this.articulosSeleccionados.splice(Array.indexOf(articulo, this.articulosSeleccionados));
+        this.articulosSeleccionados.splice(Array.indexOf(articulo, this.articulosSeleccionados), 1);
         this.precioTotal -= articulo.precio;
     }
 }
@@ -56,10 +58,7 @@ class Calculador{
 const carrito = new CarritoCompras();
 const calculador = new Calculador(carrito);
 const articuloUno = crearArticulo(); 
-const articuloDos = crearArticulo();
 carrito.agregarArticulo(articuloUno);
+const articuloDos = crearArticulo();
 carrito.agregarArticulo(articuloDos);
 alert(calculador.calcularCuotas(12));
-
-
-
