@@ -281,7 +281,7 @@ h1 {
   padding: 10px 10px;
 }
 
-.elemento, #barraLateral {
+.elemento, .elementoCarrito, #barraLateral {
   border: 1px lightgrey solid;
 }
 
@@ -303,9 +303,10 @@ h1 {
 #listado {
   display: flex;
   justify-content: space-evenly;
+  column-gap: 50px;
 }
 
-.elemento {
+.elemento, .elementoCarrito {
   display: flex;
 }
 
@@ -372,51 +373,60 @@ h1 {
   grid-area: headerIndex;
 }
 
+#listaCarrito {
+  margin: auto;
+}
+
 @media screen and (min-width: 1200px) {
-  .elemento {
+  .elemento, .elementoCarrito {
     flex-flow: row nowrap;
+  }
+
+  #listado {
+    justify-content: space-evenly;
   }
 }
 @media screen and (max-width: 600px) {
-  .elemento {
+  .elemento, .elementoCarrito {
     flex-flow: column wrap;
   }
 }
-.receipt {
+@media screen and (max-width: 1050px) {
+  #listado {
+    flex-flow: column wrap;
+    justify-content: space-around;
+  }
+
+  .elementoCarrito {
+    max-width: 750px;
+  }
+}
+#resumenCarrito {
   background: linear-gradient(135deg, transparent 5.68px, white 5.69px) top left, linear-gradient(45deg, white 2.8px, transparent 2.81px) top left, linear-gradient(135deg, white 2.8px, transparent 2.81px) bottom left, linear-gradient(45deg, transparent 5.68px, white 5.69px) bottom left;
   background-repeat: repeat-x;
   background-size: 8px 4px;
   padding: 4px 0;
-}
-.receipt-list {
-  background-color: white;
-}
-
-.receipt {
   filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.4));
   min-width: 320px;
   margin: 0 auto;
   height: auto;
 }
-.receipt-list {
+
+.listaRecibo {
   background-color: #fff;
   padding: 30px;
 }
-.receipt-item {
+
+.containerElementosResumen {
   border-bottom: 0.5px dashed #ccc;
   line-height: 1;
   overflow: hidden;
   font-family: monospace;
   font-size: 16px;
 }
-.receipt-item:not(:first-child) {
+
+.containerElementosResumen:not(:first-child) {
   margin-top: 1rem;
-}
-.receipt-label {
-  float: left;
-}
-.receipt-value {
-  float: right;
 }
 
 /*# sourceMappingURL=style.css.map */

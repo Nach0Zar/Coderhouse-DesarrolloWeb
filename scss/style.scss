@@ -251,7 +251,7 @@ h1{
     display: inline-block;
     padding: 10px 10px;
 }
-.elemento, #barraLateral{
+.elemento, .elementoCarrito, #barraLateral{
     border: 1px lightgrey solid;
 }
 #barraLateral{
@@ -271,7 +271,7 @@ h1{
     justify-content: space-evenly;
     column-gap: 50px;
 }
-.elemento{
+.elemento, .elementoCarrito{
     display: flex;
 }
 .tituloprecio, .tituloPrecioCarrito, .containerElementosResumen{
@@ -284,7 +284,6 @@ h1{
 .tituloPrecioCarrito{
     flex-flow: row nowrap;
     margin: 0 15px;
-
 }
 .precioElemento{
     margin-right: 5px;
@@ -331,22 +330,35 @@ $spans:(
 #headerIndex{
     grid-area: headerIndex;
 }
-
-@media screen and (min-width: 1200px){
-    .elemento{
-        flex-flow: row nowrap;
-    }
+#listaCarrito{
+    margin: auto;
 }
-@media screen and (max-width: 600px){
-    .elemento{
-        flex-flow: column wrap;
+@media screen and (min-width: 1200px) {
+    .elemento, .elementoCarrito{
+      flex-flow: row nowrap;
     }
-}
+    #listado{
+      justify-content: space-evenly;
+    }
+    
+  }
+  @media screen and (max-width: 600px) {
+    .elemento, .elementoCarrito {
+      flex-flow: column wrap;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    #listado {
+      flex-flow: column wrap;
+      justify-content: space-around;
+    }
+    .elementoCarrito{
+      max-width: 750px;
+    }
+    
+  }
 
-// ----------------------------------------
-// STYLES THAT MAKE THE TORN RECEIPT EFFECT
-// ----------------------------------------
-.receipt {
+#resumenCarrito {
     $triangle-size: 4px;
     $stop1: $triangle-size * 1.42;
     $stop2: $triangle-size * 0.7;
@@ -360,44 +372,24 @@ $spans:(
     background-repeat: repeat-x;
     background-size: ($triangle-size * 2) $triangle-size;
     padding: $triangle-size 0;
-  
-    &-list {
-      // You could add another linear-gradient for the white background
-      // but background on this child div keeps the code MUCH simpler
-      background-color: white;
-    }
-  }
-  
-  // -------------------
-  // STYLES FOR THE DEMO
-  // -------------------
-  html {
-    background: #eee;
-    padding: 20vh 5vw;
-  }
-  
-  .receipt {
-    filter: drop-shadow(0 2px 1px rgba(#000, 0.1));
-    max-width: 320px;
+    filter: drop-shadow(0 2px 5px rgba(#000, 0.4));
+    min-width: 320px;
     margin: 0 auto;
-  
-    &-list {
-      background-color: #fff;
-      padding: 30px;
+    height: auto;
     }
-  
-    &-item {
-      border-bottom: 0.5px dashed #ccc;
-      line-height: 1;
-      overflow: hidden;
-      font-family: monospace;
-      font-size: 16px;
-      
-      &:not(:first-child) {
-        margin-top: 1rem;
-      }
-    }
+.listaRecibo {
+    background-color: #fff;
+    padding: 30px;
+}
+.containerElementosResumen{
+    border-bottom: 0.5px dashed #ccc;
+    line-height: 1;
+    overflow: hidden;
+  font-family: monospace;
+    font-size: 16px;
+}
+.containerElementosResumen:not(:first-child) {
+    margin-top: 1rem;
+}
     
-    &-label { float: left; }
-    &-value { float: right; }
-  }
+    
