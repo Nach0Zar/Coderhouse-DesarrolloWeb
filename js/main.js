@@ -17,6 +17,17 @@ function crearArticulo(){
     alert("Se agregó exitosamente el artículo al carrito de compras.")
     return articuloNuevo;
 }
+//falta ver como tomar hijos dentro de un elemento ya tomado
+function cargarArticulos(carrito){
+    const articulos = document.getElementsByClassName('elementoCarrito');
+    for(const articulo of articulos){
+        const nombreElemento = articulo.getElementsByClassName('nombreElemento')[0].textContent;
+        const descripcion = "Prueba";
+        const precioElemento = articulo.getElementsByClassName('precioElemento')[0].textContent.replace("$","");
+        const articuloCreado = new Articulo(nombreElemento, descripcion, precioElemento);
+        carrito.agregarArticulo(articuloCreado);
+    }
+}
 
 class Articulo{
     constructor(nombreArticulo, descripcion, precio){
@@ -24,6 +35,7 @@ class Articulo{
         this.descripcion = descripcion;
         this.precio = parseInt(precio);
     }
+    
 }
 
 class CarritoCompras{
@@ -43,22 +55,21 @@ class CarritoCompras{
 
 class Calculador{
     constructor(carritoCompras){
-        this.carritoCompras= carritoCompras;
+        this.carritoCompras = carritoCompras;
     }
     calcularCuotas(cuotas){
-        return this.carritoCompras.precioTotal/parseInt(cuotas);
+        //calculo 750 pesos de servicio por item comprado para agregarle a la compra total.
+        const costoServicio = 750*this.carritoCompras.articulosSeleccionados.length;
+        return (this.carritoCompras.precioTotal+costoServicio)/parseInt(cuotas);
     }
     costoTotal(){
         return this.carritoCompras;
     }
 }
 
-//creo dos articulos, los agrego al carrito y pago en 12 cuotas el valor total.
+//leo los articulos a raiz del html, los creo como objetos, los agrego al carrito y pago en 12 cuotas el valor total + costo de servicio.
 
 const carrito = new CarritoCompras();
 const calculador = new Calculador(carrito);
-const articuloUno = crearArticulo(); 
-carrito.agregarArticulo(articuloUno);
-const articuloDos = crearArticulo();
-carrito.agregarArticulo(articuloDos);
-alert("El valor total fue divido en 12 cuotas de $" + calculador.calcularCuotas(12) + " cada una.");
+cargarArticulos(carrito);
+console.log("El valor total fue divido en 12 cuotas de $" + calculador.calcularCuotas(12) + " cada una.");
