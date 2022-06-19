@@ -22,9 +22,9 @@ function cargarArticulos(carrito){
     const articulos = document.getElementsByClassName('elementoCarrito');
     for(const articulo of articulos){
         const nombreElemento = articulo.getElementsByClassName('nombreElemento')[0].textContent;
-        const descripcion = "Prueba";
+        const descripcionElemento = articulo.getElementsByClassName('descripcionElemento')[0].textContent;;
         const precioElemento = articulo.getElementsByClassName('precioElemento')[0].textContent.replace("$","");
-        const articuloCreado = new Articulo(nombreElemento, descripcion, precioElemento);
+        const articuloCreado = new Articulo(nombreElemento, descripcionElemento, precioElemento);
         carrito.agregarArticulo(articuloCreado);
     }
 }
