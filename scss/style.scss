@@ -284,6 +284,7 @@ h1{
 .tituloPrecioCarrito{
     flex-flow: row nowrap;
     margin: 0 15px;
+    column-gap: 10px;
 }
 .precioElemento{
     margin-right: 5px;
@@ -311,11 +312,14 @@ $spans:(
 .containerImagen, .containerTextos{
     min-width: 200px;
     width: 100%;
-    display: inline-block;
-    vertical-align: middle;
+}
+.containerTextosBoton{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
 }
 .containerTextos{
-    margin: auto auto auto 0.5%;
+    margin: 10% auto 0 0.5%;
 }
 #bodyIndex{
     display: grid;
@@ -354,10 +358,17 @@ $spans:(
     }
     .elementoCarrito{
       max-width: 750px;
+      min-width: 720px;
     }
     
   }
-
+#containerTicket, .containerBotones{
+    margin: 0 auto;
+}
+.containerBotones{
+    padding-bottom: auto;
+    margin: auto auto;
+}
 #resumenCarrito {
     $triangle-size: 4px;
     $stop1: $triangle-size * 1.42;
@@ -375,9 +386,9 @@ $spans:(
     filter: drop-shadow(0 2px 5px rgba(#000, 0.4));
     min-width: 320px;
     margin: 0 auto;
-    height: auto;
+    display: block;
     }
-.listaRecibo {
+#listaRecibo {
     background-color: #fff;
     padding: 30px;
 }
