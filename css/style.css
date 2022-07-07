@@ -325,11 +325,16 @@ h1 {
   column-gap: 10px;
 }
 
-.precioElemento {
+.precioMultiplicador {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.precioElemento, .precioElementoTicket {
   margin-right: 5px;
 }
 
-.categoria span, .nombreElemento, .descripcionElemento, .precioElemento {
+.categoria span, .nombreElemento, .nombreElementoTicket, .descripcionElemento, .precioElemento, .precioElementoTicket {
   font-family: "Bebas Neue", cursive;
 }
 
@@ -391,9 +396,13 @@ h1 {
     justify-content: space-evenly;
   }
 }
-@media screen and (max-width: 600px) {
-  .elemento, .elementoCarrito {
+@media screen and (max-width: 700px) {
+  .elemento, .elementoCarrito, .containerBotones, .tituloPrecioCarrito {
     flex-flow: column wrap;
+  }
+
+  .containerImagen, .nombreElemento, .precioElemento, .containerCantidad, .containerBotonEliminar {
+    margin: 5px auto;
   }
 }
 @media screen and (max-width: 1050px) {
@@ -404,16 +413,17 @@ h1 {
 
   .elementoCarrito {
     max-width: 750px;
-    min-width: 720px;
   }
 }
-#containerTicket, .containerBotones {
+#containerTicket {
   margin: 0 auto;
 }
 
 .containerBotones {
   padding-bottom: auto;
-  margin: auto auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 0 5px;
 }
 
 #resumenCarrito {
