@@ -313,7 +313,7 @@ $spans:(
     max-width: 200px;
     justify-content: center;
 }
-.containerImagen, .containerTextos{
+.containerImagen, .containerTextos, .containerTextosElementos{
     min-width: 200px;
     width: 100%;
 }
@@ -324,6 +324,9 @@ $spans:(
 }
 .containerTextos{
     margin: 10% auto 0 0.5%;
+}
+.containerTextosElementos{
+    margin: auto auto;
 }
 #bodyIndex{
     display: grid;
@@ -370,6 +373,11 @@ $spans:(
   }
 #containerTicket{
     margin: 0 auto;
+}
+.containerBotonElemento{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 0 10px 0;
 }
 .containerBotones{
     padding-bottom: auto;

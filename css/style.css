@@ -357,7 +357,7 @@ h1 {
   justify-content: center;
 }
 
-.containerImagen, .containerTextos {
+.containerImagen, .containerTextos, .containerTextosElementos {
   min-width: 200px;
   width: 100%;
 }
@@ -370,6 +370,10 @@ h1 {
 
 .containerTextos {
   margin: 10% auto 0 0.5%;
+}
+
+.containerTextosElementos {
+  margin: auto auto;
 }
 
 #bodyIndex {
@@ -417,6 +421,12 @@ h1 {
 }
 #containerTicket {
   margin: 0 auto;
+}
+
+.containerBotonElemento {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 0 10px 0;
 }
 
 .containerBotones {
