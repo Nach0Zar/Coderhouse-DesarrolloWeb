@@ -21,7 +21,7 @@ class Articulo{
     static idCounter = 0;
     constructor(nombreArticulo, descripcion, precio, imgSrc, cantidad){
         this.id = Articulo.getIdCounter();
-        Articulo.idCounter += 1;
+        Articulo.idCounter++;
         this.nombreArticulo = nombreArticulo;
         this.descripcion = descripcion;
         this.precio = parseInt(precio);
@@ -32,11 +32,11 @@ class Articulo{
         return Articulo.idCounter;
     }
     sumarCantidad(){
-        this.cantidad += 1;
+        this.cantidad++;
     }
     restarCantidad(){
         if(this.cantidad!=1){
-            this.cantidad -= 1;
+            this.cantidad--;
         }
     }
 }
@@ -57,12 +57,10 @@ class CarritoCompras{
         this.precioTotal -= articulo.precio;
         this.articulosSeleccionados.splice(this.articulosSeleccionados.indexOf(articulo), 1);
         sessionStorage.setItem('ListadoItems',JSON.stringify(this.articulosSeleccionados));
-        console.log(JSON.stringify(this.articulosSeleccionados));
     }
     recalcularPrecioTotal(){
         this.precioTotal = 0;
         for (let item of this.articulosSeleccionados){
-            console.log(item.precio);
             this.precioTotal += (item.precio*item.cantidad); 
         }
     }
