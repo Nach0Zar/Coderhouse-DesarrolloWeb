@@ -8,9 +8,16 @@ export class Articulo{
         this.precio = parseInt(precio);
         this.imgSrc = imgSrc;
         this.cantidad = cantidad;
+        this.agregado = false;
     }
     static getIdCounter(){
         return Articulo.idCounter;
+    }
+    agregar(){
+        this.agregado = true;
+    }
+    quitar(){
+        this.agregado = false;
     }
     sumarCantidad(){
         this.cantidad++;
@@ -30,6 +37,7 @@ export class CarritoCompras{
         return this.articulosSeleccionados;
     }
     agregarArticulo(articulo){
+        articulo.agregar();
         this.articulosSeleccionados.push(articulo);
         this.precioTotal += (articulo.precio*articulo.cantidad);
         sessionStorage.setItem('ListadoItems',JSON.stringify(this.articulosSeleccionados));
@@ -55,6 +63,7 @@ export class CarritoCompras{
         articuloSumar.sumarCantidad();
         this.recalcularPrecioTotal();
         sessionStorage.setItem('ListadoItems',JSON.stringify(this.articulosSeleccionados));
+        console.log(sessionStorage.getItem('ListadoItems'));
     }
     restarCantidadArticulo(id){
         let articuloRestar;
@@ -90,7 +99,6 @@ export class Calculador{
     }
     
 }
-//esta clase se encargará en un futuro de la inserción de toda la información en el HTML en base a los articulos cargados
 export class InterfazCarrito{
     constructor(){
         this.calculador = new Calculador();
@@ -98,7 +106,8 @@ export class InterfazCarrito{
     crearArticulos(listadoItems){
         //por ahora carga articulos de la lista hardcodeada desde un listado de objetos
         for (const item of listadoItems){ 
-            let articulo = new Articulo(item.nombreArticulo, item.descripcion, item.precio, item.imgSrc,item.cantidad);
+            let articulo = new Articulo(item.nombreArticulo, item.descripcion, item.precio, item.imgSrc, item.cantidad);
+            console.log(item.cantidad);
             this.calculador.getCarritoCompras().agregarArticulo(articulo);
         }
     }
@@ -182,7 +191,6 @@ export class InterfazCarrito{
         });
         
     }
-    
     cargarTicketArticulos(){
         const ticket = document.getElementById('listaRecibo');
         let listaElementos = document.createElement("div");
@@ -234,6 +242,7 @@ export class InterfazCarrito{
             }
         }
         this.calculador.getCarritoCompras().removerArticulo(articuloEliminar);
+        articuloEliminar.quitar();
         this.recargarTicketArticulos();
         this.recargarListadoArticulos();
         
@@ -259,7 +268,10 @@ export class InterfazCarrito{
 export class InterfazCatalogo{
     constructor(){
         this.carritoCompras = new CarritoCompras();
+        this.articulos = [];
+        this.cargarArticulosArchivo();
     }
+    //leo el json con el listado de articulos, los creo como objetos Articulo y los agrego al listado
     cargarArticulosArchivo(){
         function readTextFile(file, callback) {
             let rawFile = new XMLHttpRequest();
@@ -274,8 +286,87 @@ export class InterfazCatalogo{
         }
         readTextFile("../json/catalogo.json", function(texto){
             let articulosArchivo = JSON.parse(texto); //parse JSON
-            sessionStorage.setItem('prueba',JSON.stringify(articulosArchivo.articulos));
+            sessionStorage.setItem('json',JSON.stringify(articulosArchivo.articulos));
         });
-        return JSON.parse(sessionStorage.getItem('prueba'));
+        for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
+            const articuloObjeto = new Articulo (articulo.nombreArticulo, articulo.descripcion, articulo.precio, articulo.imgSrc, 1)
+            this.articulos.push(articuloObjeto);
+        }
+    }
+    cargarArticulosAgregados(articulosAgregados){
+        for(let articuloCambiar of articulosAgregados){
+            let id = articuloCambiar.id;
+            id=(parseInt(id));
+            for (const articulo of this.articulos){
+                if(id == articulo.id){
+                    this.carritoCompras.agregarArticulo(articulo);
+                }
+            }
+        }
+        
+    }
+    cargarArticulosListado(){
+        let catalogo = document.getElementById('listaDeObjetos');
+        for(const articulo of this.articulos){
+            let elemento = document.createElement("div");
+            elemento.setAttribute("class", "elemento");
+            if(!articulo.agregado){
+                elemento.innerHTML = `
+                <div class="containerImagen">
+                    <img src="${articulo.imgSrc}" alt="">
+                </div>
+                <div class="containerTextosBoton">
+                    <div class="containerTextosElementos">
+                        <div class="tituloprecio">
+                            <h4 class="nombreElemento">${articulo.nombreArticulo}</h4>
+                            <h5 class="precioElemento">$${articulo.precio}</h5>
+                        </div>
+                        <p class="descripcionElemento">CARACTERÍTICAS GENERALES · Tamaño: 27“/68.6cm. Tipo de panel: TN · Color Gamut (CIE1931): 72%. Prof. de Color: 16.7M colores · Pixel pitch(mm): 0.31125 x 0.31125.</p>
+                    </div>
+                    <div class="containerBotonElemento">
+                        <button type="button" class="btn btn-outline-dark botonAgregar" id="boton${articulo.id}">Agregar Articulo</button>
+                    </div>
+                </div>`
+            }
+            else{
+                elemento.innerHTML = `
+                <div class="containerImagen">
+                    <img src="${articulo.imgSrc}" alt="">
+                </div>
+                <div class="containerTextosBoton">
+                    <div class="containerTextosElementos">
+                        <div class="tituloprecio">
+                            <h4 class="nombreElemento">${articulo.nombreArticulo}</h4>
+                            <h5 class="precioElemento">$${articulo.precio}</h5>
+                        </div>
+                        <p class="descripcionElemento">CARACTERÍTICAS GENERALES · Tamaño: 27“/68.6cm. Tipo de panel: TN · Color Gamut (CIE1931): 72%. Prof. de Color: 16.7M colores · Pixel pitch(mm): 0.31125 x 0.31125.</p>
+                    </div>
+                    <div class="containerBotonElemento">
+                        <button type="button" class="btn btn-dark botonAgregar" id="boton${articulo.id}">Articulo Añadido</button>
+                    </div>
+                </div>`
+            }
+            let br = document.createElement("br");
+            catalogo.append(elemento);
+            catalogo.append(br.cloneNode(true));
+            
+        }
+        let botonesAgregar = document.querySelectorAll(".botonAgregar");
+        botonesAgregar.forEach((btn) => {
+            btn.onclick = () => {
+                if(btn.innerHTML==`Agregar Articulo`){
+                    let id = btn.id.replace("boton","");
+                    id=(parseInt(id));
+                    for (const articulo of this.articulos){
+                        if(id == articulo.id){
+                            this.carritoCompras.agregarArticulo(articulo);
+                        }
+                    }
+                    btn.innerHTML = `Articulo Añadido`;
+                    btn.classList.remove("btn-outline-dark");
+                    btn.setAttribute("class", "btn btn-dark");
+                }
+            };            
+        });
     }
 }

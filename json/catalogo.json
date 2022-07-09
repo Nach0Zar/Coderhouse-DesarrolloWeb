@@ -5,27 +5,25 @@
             "nombreArticulo": "Monitor 24'' LG Modelo ABsCs24w",
             "descripcion": "CARACTERÍTICAS GENERALES · Tamaño: 27“/68.6cm. Tipo de panel: TN · Color Gamut (CIE1931): 72%. Prof. de Color: 16.7M colores · Pixel pitch(mm): 0.31125 x 0.31125.", 
             "precio": 25000, 
-            "imgSrc": "https://www.lg.com/us/images/tvs/50pk540/gallery/large01.jpg", 
-            "cantidad": 1
+            "imgSrc": "https://www.lg.com/us/images/tvs/50pk540/gallery/large01.jpg"
         },
         {
             "nombreArticulo": "Combo cosmeticos AVON",
             "descripcion": "Cosmeticos Avon Combo Completo Cremas:6 CREMAS AVON CARE DE 100 G:2 RESTAURADORAS DE PUNTA +1 ACEITE DE ARGAN PARA EL CABELLO+1 CREMA FOREVER 200ml",
             "precio": 45000,
-            "imgSrc": "https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg",
-            "cantidad": 2},
+            "imgSrc": "https://cdn.static.escuelamakeup.com/imagenes/de-que-estan-hechos-los-cosmeticos_905x603.jpg"
+        },
         {
             "nombreArticulo": "Aceite de girasol COCINERO X12",
             "descripcion": "Pack x12 aceite cocinero venta al por mayor. Aceite de girasol de marca de primera linea a nivel sudamerica",
             "precio": 5000,
-            "imgSrc": "https://jumboargentina.vtexassets.com/arquivos/ids/614663/Aceite-De-Girasol-Cocinero-900-Ml-1-32670.jpg?v=637409202878630000",
-            "cantidad": 3},
+            "imgSrc": "https://jumboargentina.vtexassets.com/arquivos/ids/614663/Aceite-De-Girasol-Cocinero-900-Ml-1-32670.jpg?v=637409202878630000"
+        },
         {
             "nombreArticulo": "Pack escolar Lapices de colores + goma + sacapuntas",
             "descripcion": "Pack para inicio de clases. 50 Lapices para colorear y de regalo un pack de goma y sacapuntas",
             "precio": 2000,
-            "imgSrc": "https://http2.mlstatic.com/D_NQ_NP_968821-MLA31587799913_072019-O.jpg",
-            "cantidad": 4
+            "imgSrc": "https://http2.mlstatic.com/D_NQ_NP_968821-MLA31587799913_072019-O.jpg"
         }
     ]
 }
