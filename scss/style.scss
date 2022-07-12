@@ -321,9 +321,6 @@ $spans:(
 .containerImagen>img{
     max-width: 200px;
 }
-.containerTextos{
-    align-items: baseline;
-}
 .containerImagen, .containerTextos, .containerTextosElementos{
     min-width: 200px;
     width: 100%;
@@ -332,9 +329,11 @@ $spans:(
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
+    margin-left: 2.5%;
 }
 .containerTextos{
-    margin: 5% auto 0 0.5%;
+    grid-area: containerTextos;
+    margin: 7% auto 0 0.5%;
 }
 .containerTextosElementos{
     margin: auto auto;
@@ -355,6 +354,10 @@ $spans:(
 #listaCarrito{
     margin: auto;
 }
+.botonEliminar{
+    display: flex;
+    vertical-align: middle;
+}
 @media screen and (min-width: 1200px) {
     .elemento, .elementoCarrito{
       flex-flow: row nowrap;
@@ -366,7 +369,7 @@ $spans:(
   }
   @media screen and (max-width: 700px) {
     .elemento, .elementoCarrito, .containerBotones, .tituloPrecioCarrito {
-      flex-flow: column wrap-reverse;
+      flex-flow: column wrap;
     }
     .containerImagen, .nombreElemento, .precioElemento, .containerCantidad, .containerBotonEliminar{
         margin: 5px auto;
@@ -391,6 +394,7 @@ $spans:(
     margin: 0 0 10px 0;
 }
 .containerBotones{
+    grid-area: containerBotones;
     padding-bottom: auto;
     display: flex;
     justify-content: space-between;
@@ -436,4 +440,18 @@ $spans:(
 .containerCantidad{
     display: flex;
     margin: auto 15%;
+}
+.containerTextosBotonCarrito{
+    @extend .containerTextosBoton;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-areas: 
+    "containerTextos"
+    "containerBotones";
+}
+.containerBotonEliminar{
+    display: flex;
+}
+.containerBoton{
+    margin: auto 0;
 }

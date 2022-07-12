@@ -117,7 +117,7 @@ export class InterfazCarrito{
                 <div class="containerImagen">
                     <img src="${imgSrc}" alt="">
                 </div>
-                <div class="containerTextosBoton">
+                <div class="containerTextosBotonCarrito">
                     <div class="containerTextos">
                         <div class="tituloPrecioCarrito">
                             <h4 class="nombreElemento">${nombreArticulo}</h4>
@@ -135,7 +135,9 @@ export class InterfazCarrito{
                             </div>
                         </div>   
                         <div class="containerBotonEliminar">
-                            <button type="button" class="btn btn-outline-dark botonEliminar" id="boton${id}">Quitar Articulo</button>
+                            <div class="containerBoton">
+                                <button type="button" class="btn btn-outline-dark botonEliminar" id="boton${id}">Quitar Articulo</button>
+                            </div>
                         </div>
                     </div>
                 </div>`
