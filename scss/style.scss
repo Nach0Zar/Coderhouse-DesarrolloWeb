@@ -308,10 +308,21 @@ $spans:(
 #listaDeObjetos{
     margin-right: 6.5%;
 }
+.containerImagen{
+    display: flex;
+    border-right: 1px lightgrey solid;
+    max-width: 201px;
+}
+
 .containerImagen, .containerImagen>img{
     @include size(auto, 150px);
-    max-width: 200px;
     justify-content: center;
+}
+.containerImagen>img{
+    max-width: 200px;
+}
+.containerTextos{
+    align-items: baseline;
 }
 .containerImagen, .containerTextos, .containerTextosElementos{
     min-width: 200px;
@@ -323,7 +334,7 @@ $spans:(
     width: 100%;
 }
 .containerTextos{
-    margin: 10% auto 0 0.5%;
+    margin: 5% auto 0 0.5%;
 }
 .containerTextosElementos{
     margin: auto auto;
@@ -355,7 +366,7 @@ $spans:(
   }
   @media screen and (max-width: 700px) {
     .elemento, .elementoCarrito, .containerBotones, .tituloPrecioCarrito {
-      flex-flow: column wrap;
+      flex-flow: column wrap-reverse;
     }
     .containerImagen, .nombreElemento, .precioElemento, .containerCantidad, .containerBotonEliminar{
         margin: 5px auto;
@@ -418,4 +429,11 @@ $spans:(
 .containerElementosResumen:not(:first-child) {
     margin-top: 1rem;
 }
-   
+.botonAgregar, .botonRestar{
+    background-color: white;
+    border: white;
+}
+.containerCantidad{
+    display: flex;
+    margin: auto 15%;
+}

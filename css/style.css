@@ -350,11 +350,24 @@ h1 {
   margin-right: 6.5%;
 }
 
+.containerImagen {
+  display: flex;
+  border-right: 1px lightgrey solid;
+  max-width: 201px;
+}
+
 .containerImagen, .containerImagen > img {
   width: auto;
   height: 150px;
-  max-width: 200px;
   justify-content: center;
+}
+
+.containerImagen > img {
+  max-width: 200px;
+}
+
+.containerTextos {
+  align-items: baseline;
 }
 
 .containerImagen, .containerTextos, .containerTextosElementos {
@@ -369,7 +382,7 @@ h1 {
 }
 
 .containerTextos {
-  margin: 10% auto 0 0.5%;
+  margin: 5% auto 0 0.5%;
 }
 
 .containerTextosElementos {
@@ -402,7 +415,7 @@ h1 {
 }
 @media screen and (max-width: 700px) {
   .elemento, .elementoCarrito, .containerBotones, .tituloPrecioCarrito {
-    flex-flow: column wrap;
+    flex-flow: column wrap-reverse;
   }
 
   .containerImagen, .nombreElemento, .precioElemento, .containerCantidad, .containerBotonEliminar {
@@ -462,6 +475,16 @@ h1 {
 
 .containerElementosResumen:not(:first-child) {
   margin-top: 1rem;
+}
+
+.botonAgregar, .botonRestar {
+  background-color: white;
+  border: white;
+}
+
+.containerCantidad {
+  display: flex;
+  margin: auto 15%;
 }
 
 /*# sourceMappingURL=style.css.map */

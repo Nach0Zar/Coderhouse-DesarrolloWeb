@@ -128,9 +128,9 @@ export class InterfazCarrito{
                         <div class="containerCantidad">
                             <div class="container">
                                 <div class="input-group w-auto align-items-center">
-                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 botonRestar" id="boton${id}">
+                                    <input type="button" value="-" class="botonRestar" id="boton${id}">
                                     <div class="cantidadElemento">${cantidad}</div>
-                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm botonAgregar" id="boton${id}">
+                                    <input type="button" value="+" class="botonAgregar" id="boton${id}">
                                 </div>
                             </div>
                         </div>   
@@ -314,7 +314,7 @@ export class InterfazCatalogo{
                         <p class="descripcionElemento">${descripcion}</p>
                     </div>
                     <div class="containerBotonElemento">
-                        <button type="button" class="btn ${estilo} botonAgregar" id="boton${id}">${texto}</button>
+                        <button type="button" class="btn ${estilo} botonAgregarCarrito" id="boton${id}">${texto}</button>
                     </div>
                 </div>`
             let br = document.createElement("br");
@@ -322,7 +322,7 @@ export class InterfazCatalogo{
             catalogo.append(br.cloneNode(true));
             
         }
-        let botonesAgregar = document.querySelectorAll(".botonAgregar");
+        let botonesAgregar = document.querySelectorAll(".botonAgregarCarrito");
         botonesAgregar.forEach((btn) => {
             btn.onclick = () => {
                 if(btn.innerHTML==`Agregar Articulo`){
