@@ -23,9 +23,7 @@ export class Articulo{
         this.cantidad++;
     }
     restarCantidad(){
-        if(this.cantidad!=1){
-            this.cantidad--;
-        }
+        (this.cantidad!=1) && (this.cantidad--)
     }
 }
 export class CarritoCompras{
@@ -56,21 +54,16 @@ export class CarritoCompras{
     sumarCantidadArticulo(id){
         let articuloSumar;
         for (const articulo of this.articulosSeleccionados){
-            if(id == articulo.id){
-                articuloSumar = articulo;
-            }
+            (id == articulo.id)&& (articuloSumar = articulo);
         }
         articuloSumar.sumarCantidad();
         this.recalcularPrecioTotal();
         sessionStorage.setItem('ListadoItems',JSON.stringify(this.articulosSeleccionados));
-        console.log(sessionStorage.getItem('ListadoItems'));
     }
     restarCantidadArticulo(id){
         let articuloRestar;
         for (const articulo of this.articulosSeleccionados){
-            if(id == articulo.id){
-                articuloRestar = articulo;
-            }
+            (id == articulo.id) && (articuloRestar = articulo);
         }
         articuloRestar.restarCantidad();
         this.recalcularPrecioTotal();
@@ -106,8 +99,8 @@ export class InterfazCarrito{
     crearArticulos(listadoItems){
         //por ahora carga articulos de la lista hardcodeada desde un listado de objetos
         for (const item of listadoItems){ 
-            let articulo = new Articulo(item.nombreArticulo, item.descripcion, item.precio, item.imgSrc, item.cantidad);
-            console.log(item.cantidad);
+            let {nombreArticulo, descripcion ,precio, imgSrc, cantidad} = item;
+            let articulo = new Articulo(nombreArticulo, descripcion, precio, imgSrc, cantidad);
             this.calculador.getCarritoCompras().agregarArticulo(articulo);
         }
     }
@@ -116,32 +109,32 @@ export class InterfazCarrito{
         let listaCarrito = document.getElementById('listaCarrito');
         if (articulos.length > 0){
             for(const articulo of articulos){
+                let {id, nombreArticulo, precio, imgSrc, cantidad} = articulo;
                 let elementoCarrito = document.createElement("div");
                 elementoCarrito.setAttribute("class", "elementoCarrito");
                 elementoCarrito.innerHTML = `
                 <div class="containerImagen">
-                    <img src="${articulo.imgSrc}" alt="">
+                    <img src="${imgSrc}" alt="">
                 </div>
                 <div class="containerTextosBoton">
                     <div class="containerTextos">
                         <div class="tituloPrecioCarrito">
-                            <h4 class="nombreElemento">${articulo.nombreArticulo}</h4>
-                            <h5 class="precioElemento">$${articulo.precio}</h5>
-                            <p class="descripcionElemento" hidden>Pack para inicio de clases. 50 Lapices para colorear y de regalo un pack de goma y sacapuntas</p>
+                            <h4 class="nombreElemento">${nombreArticulo}</h4>
+                            <h5 class="precioElemento">$${precio}</h5>
                         </div>
                     </div>
                     <div class="containerBotones">
                         <div class="containerCantidad">
                             <div class="container">
                                 <div class="input-group w-auto align-items-center">
-                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 botonRestar" id="boton${articulo.id}">
-                                    <div class="cantidadElemento">${articulo.cantidad}</div>
-                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm botonAgregar" id="boton${articulo.id}">
+                                    <input type="button" value="-" class="button-minus border rounded-circle  icon-shape icon-sm mx-1 botonRestar" id="boton${id}">
+                                    <div class="cantidadElemento">${cantidad}</div>
+                                    <input type="button" value="+" class="button-plus border rounded-circle icon-shape icon-sm botonAgregar" id="boton${id}">
                                 </div>
                             </div>
                         </div>   
                         <div class="containerBotonEliminar">
-                            <button type="button" class="btn btn-outline-dark botonEliminar" id="boton${articulo.id}">Quitar Articulo</button>
+                            <button type="button" class="btn btn-outline-dark botonEliminar" id="boton${id}">Quitar Articulo</button>
                         </div>
                     </div>
                 </div>`
@@ -208,7 +201,8 @@ export class InterfazCarrito{
         if (this.calculador.getCarritoCompras().getArticulosSeleccionados().length > 0){
             listaElementos.innerHTML = "";
             for(const articulo of this.calculador.getCarritoCompras().getArticulosSeleccionados()){
-                listaElementos.innerHTML += `<div class='containerElementosResumen'><div class='nombreElementoTicket'>${articulo.nombreArticulo}</div><div class='precioMultiplicador'><div class='precioElementoTicket'>$${articulo.precio}</div><div class='precioElementoTicket'>X${articulo.cantidad}</div></div></div>`;
+                let {nombreArticulo, precio, cantidad} = articulo;
+                listaElementos.innerHTML += `<div class='containerElementosResumen'><div class='nombreElementoTicket'>${nombreArticulo}</div><div class='precioMultiplicador'><div class='precioElementoTicket'>$${precio}</div><div class='precioElementoTicket'>X${cantidad}</div></div></div>`;
             }
         }
         else{
@@ -237,9 +231,7 @@ export class InterfazCarrito{
         let articulos = this.calculador.getCarritoCompras().getArticulosSeleccionados();
         let articuloEliminar;
         for (const articulo of articulos){
-            if(id == articulo.id){
-                articuloEliminar = articulo;
-            }
+            (id == articulo.id) && (articuloEliminar = articulo);
         }
         this.calculador.getCarritoCompras().removerArticulo(articuloEliminar);
         articuloEliminar.quitar();
@@ -251,9 +243,7 @@ export class InterfazCarrito{
         let articulos = this.calculador.getCarritoCompras().getArticulosSeleccionados();
         let articuloSumar;
         for (const articulo of articulos){
-            if(id == articulo.id){
-                articuloSumar = articulo;
-            }
+        (id == articulo.id)&& (articuloSumar = articulo);
         }
         this.calculador.getCarritoCompras().sumarCantidadArticulo(id);
         this.recargarTicketArticulos();
@@ -278,9 +268,7 @@ export class InterfazCatalogo{
             rawFile.overrideMimeType("application/json");
             rawFile.open("GET", file, true);
             rawFile.onreadystatechange = function() {
-                if (rawFile.readyState === 4 && rawFile.status == "200") {
-                    callback(rawFile.responseText);
-                }
+                (rawFile.readyState === 4 && rawFile.status == "200") && callback(rawFile.responseText);
             }
             rawFile.send(null);
         }
@@ -289,18 +277,17 @@ export class InterfazCatalogo{
             sessionStorage.setItem('json',JSON.stringify(articulosArchivo.articulos));
         });
         for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
-            const articuloObjeto = new Articulo (articulo.nombreArticulo, articulo.descripcion, articulo.precio, articulo.imgSrc, 1)
+            let {nombreArticulo, descripcion ,precio, imgSrc} = articulo;
+            const articuloObjeto = new Articulo (nombreArticulo, descripcion, precio, imgSrc, 1)
             this.articulos.push(articuloObjeto);
         }
     }
     cargarArticulosAgregados(articulosAgregados){
         for(let articuloCambiar of articulosAgregados){
             let id = articuloCambiar.id;
-            id=(parseInt(id));
+            id = (parseInt(id));
             for (const articulo of this.articulos){
-                if(id == articulo.id){
-                    this.carritoCompras.agregarArticulo(articulo);
-                }
+                id == articulo.id && (this.carritoCompras.agregarArticulo(articulo))
             }
         }
         
@@ -310,42 +297,25 @@ export class InterfazCatalogo{
         for(const articulo of this.articulos){
             let elemento = document.createElement("div");
             elemento.setAttribute("class", "elemento");
-            if(!articulo.agregado){
-                elemento.innerHTML = `
+            let texto, estilo;
+            (!articulo.agregado) ? (texto = "Agregar Articulo", estilo = "btn-outline-dark") : (texto = "Articulo Añadido", estilo = "btn-dark");
+            let {id, nombreArticulo, descripcion ,precio, imgSrc} = articulo;
+            elemento.innerHTML = `
                 <div class="containerImagen">
-                    <img src="${articulo.imgSrc}" alt="">
+                    <img src="${imgSrc}" alt="">
                 </div>
                 <div class="containerTextosBoton">
                     <div class="containerTextosElementos">
                         <div class="tituloprecio">
-                            <h4 class="nombreElemento">${articulo.nombreArticulo}</h4>
-                            <h5 class="precioElemento">$${articulo.precio}</h5>
+                            <h4 class="nombreElemento">${nombreArticulo}</h4>
+                            <h5 class="precioElemento">$${precio}</h5>
                         </div>
-                        <p class="descripcionElemento">CARACTERÍTICAS GENERALES · Tamaño: 27“/68.6cm. Tipo de panel: TN · Color Gamut (CIE1931): 72%. Prof. de Color: 16.7M colores · Pixel pitch(mm): 0.31125 x 0.31125.</p>
+                        <p class="descripcionElemento">${descripcion}</p>
                     </div>
                     <div class="containerBotonElemento">
-                        <button type="button" class="btn btn-outline-dark botonAgregar" id="boton${articulo.id}">Agregar Articulo</button>
+                        <button type="button" class="btn ${estilo} botonAgregar" id="boton${id}">${texto}</button>
                     </div>
                 </div>`
-            }
-            else{
-                elemento.innerHTML = `
-                <div class="containerImagen">
-                    <img src="${articulo.imgSrc}" alt="">
-                </div>
-                <div class="containerTextosBoton">
-                    <div class="containerTextosElementos">
-                        <div class="tituloprecio">
-                            <h4 class="nombreElemento">${articulo.nombreArticulo}</h4>
-                            <h5 class="precioElemento">$${articulo.precio}</h5>
-                        </div>
-                        <p class="descripcionElemento">CARACTERÍTICAS GENERALES · Tamaño: 27“/68.6cm. Tipo de panel: TN · Color Gamut (CIE1931): 72%. Prof. de Color: 16.7M colores · Pixel pitch(mm): 0.31125 x 0.31125.</p>
-                    </div>
-                    <div class="containerBotonElemento">
-                        <button type="button" class="btn btn-dark botonAgregar" id="boton${articulo.id}">Articulo Añadido</button>
-                    </div>
-                </div>`
-            }
             let br = document.createElement("br");
             catalogo.append(elemento);
             catalogo.append(br.cloneNode(true));
@@ -358,9 +328,7 @@ export class InterfazCatalogo{
                     let id = btn.id.replace("boton","");
                     id=(parseInt(id));
                     for (const articulo of this.articulos){
-                        if(id == articulo.id){
-                            this.carritoCompras.agregarArticulo(articulo);
-                        }
+                        (id == articulo.id) && this.carritoCompras.agregarArticulo(articulo);
                     }
                     btn.innerHTML = `Articulo Añadido`;
                     btn.classList.remove("btn-outline-dark");
