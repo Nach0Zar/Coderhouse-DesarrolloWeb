@@ -1,3 +1,4 @@
+
 export class Articulo{
     static idCounter = 0;
     constructor(nombreArticulo, descripcion, precio, imgSrc, cantidad){
@@ -328,11 +329,18 @@ export class InterfazCatalogo{
                     let id = btn.id.replace("boton","");
                     id=(parseInt(id));
                     for (const articulo of this.articulos){
-                        (id == articulo.id) && this.carritoCompras.agregarArticulo(articulo);
+                        (id == articulo.id) && (this.carritoCompras.agregarArticulo(articulo),Toastify({
+                            text: "Agregaste el articulo \n" + articulo.nombreArticulo + "\n a tu carrito!",
+                            duration: 3000,
+                            style: {
+                                background: "linear-gradient(0deg, rgba(61,42,138,1) 0%, rgba(172,34,195,1) 70%)",
+                              },
+                        }).showToast());
                     }
                     btn.innerHTML = `Articulo Añadido`;
                     btn.classList.remove("btn-outline-dark");
                     btn.setAttribute("class", "btn btn-dark");
+                    
                 }
             };            
         });
