@@ -1,4 +1,3 @@
-
 export class Articulo{
     static idCounter = 0;
     constructor(nombreArticulo, descripcion, precio, imgSrc, cantidad){
@@ -98,7 +97,6 @@ export class InterfazCarrito{
         this.calculador = new Calculador();
     }
     crearArticulos(listadoItems){
-        //por ahora carga articulos de la lista hardcodeada desde un listado de objetos
         for (const item of listadoItems){ 
             let {nombreArticulo, descripcion ,precio, imgSrc, cantidad} = item;
             let articulo = new Articulo(nombreArticulo, descripcion, precio, imgSrc, cantidad);
@@ -269,7 +267,7 @@ export class InterfazCatalogo{
         function readTextFile(file, callback) {
             let rawFile = new XMLHttpRequest();
             rawFile.overrideMimeType("application/json");
-            rawFile.open("GET", file, true);
+            rawFile.open("GET", file, false);
             rawFile.onreadystatechange = function() {
                 (rawFile.readyState === 4 && rawFile.status == "200") && callback(rawFile.responseText);
             }
@@ -278,6 +276,7 @@ export class InterfazCatalogo{
         readTextFile("../json/catalogo.json", function(texto){
             let articulosArchivo = JSON.parse(texto); //parse JSON
             sessionStorage.setItem('json',JSON.stringify(articulosArchivo.articulos));
+            console.log(JSON.parse(sessionStorage.getItem('json')));
         });
         for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
             let {nombreArticulo, descripcion ,precio, imgSrc} = articulo;
