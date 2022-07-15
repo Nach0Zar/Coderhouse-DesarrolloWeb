@@ -509,4 +509,10 @@ h1 {
   margin: auto auto;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /*# sourceMappingURL=style.css.map */

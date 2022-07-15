@@ -7,4 +7,3 @@ if (!(sessionStorage.getItem('ListadoItems')==null || sessionStorage.getItem('Li
 }
 interfaz.cargarArticulosListado();
 interfaz.cargarTicketArticulos();
-console.log("El valor total fue divido en 12 cuotas de $" + interfaz.calculador.calcularCuotas(12) + " cada una.");

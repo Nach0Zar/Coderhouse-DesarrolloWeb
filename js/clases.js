@@ -225,78 +225,96 @@ export class InterfazCarrito{
                         <h5 class="modal-title" id="staticBackdropLabel">Realizar compra</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body centered">
-                        <p>¿Estas a punto de finalizar tu compra, estás seguro de querer hacerlo?
-                        <p>Confirmar que su información de contacto es la correcta. De no ser asi, modificarla desde su perfil.
-                        <form class="form-horizontal" role="form" method="POST" action="">
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">@</span>
+                    <form class="form-horizontal" role="form" method="POST" action="">
+                        <div class="modal-body centered">
+                            <p>¿Estas a punto de finalizar tu compra, estás seguro de querer hacerlo?
+                            <p>Confirmar que su información de contacto es la correcta. De no ser asi, modificarla desde su perfil.
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">@</span>
+                                        </div>
+                                    <input type="text" class="form-control" placeholder="Nombre de Usuario" readonly="readonly">
                                     </div>
-                                <input type="text" class="form-control" placeholder="Nombre de Usuario" readonly="readonly">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Mail de contacto</span>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Mail de contacto</span>
+                                        </div>
+                                    <input type="email" class="form-control" placeholder="Mail del usuario" readonly="readonly">
                                     </div>
-                                <input type="email" class="form-control" placeholder="Mail del usuario" readonly="readonly">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                        </div>
+                                    <input type="text" class="form-control" placeholder="Nombre del usuario" readonly="readonly">
                                     </div>
-                                <input type="text" class="form-control" placeholder="Nombre del usuario" readonly="readonly">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Apellido</span>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Apellido</span>
+                                        </div>
+                                    <input type="text" class="form-control" placeholder="Apellido del usuario" readonly="readonly">
                                     </div>
-                                <input type="text" class="form-control" placeholder="Apellido del usuario" readonly="readonly">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">Apellido</span>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Tarjeta del usuario</span>
+                                        </div>
+                                    <input type="number" class="form-control" placeholder="XXXXXXXXXXXXXXXXXXX" required>
                                     </div>
-                                <input type="text" class="form-control" placeholder="Apellido del usuario" readonly="readonly">
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <div class="input-group-text">
-                                        <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="3">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Fecha de Vto.</span>
+                                        </div>
+                                        <input type="month" class="form-control" placeholder="YYYY-MM" required>
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Codigo de seguridad</span>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="XXXX" required>
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="3 Cuotas sin interés" readonly="readonly">
                                 </div>
-                                <div class="input-group">
-                                    <div class="input-group-text">
-                                        <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="6">
+                                <div class="form-group mb-3">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="1" checked="checked">
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="1 Cuota sin interés" readonly="readonly">
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="6 Cuotas sin interés" readonly="readonly">
-                                </div>
-                                <div class="input-group">
-                                    <div class="input-group-text">
-                                        <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="12">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="3">
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="3 Cuotas sin interés" readonly="readonly">
                                     </div>
-                                    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="12 Cuotas sin interés" readonly="readonly">
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="6">
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="6 Cuotas sin interés" readonly="readonly">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-text">
+                                            <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="12">
+                                        </div>
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="12 Cuotas sin interés" readonly="readonly">
+                                    </div>
                                 </div>
-                            </div>
-                        <br> 
-                        <p>El monto a pagar por los servicios totales es de <strong>$${this.calculador.costoTotal()}
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar Compra</button>
-                        <button type="submit" class="btn btn-outline-secondary" name="comprar" value="Comprar">Realizar Compra</button>
-                    </div>
+                            <br> 
+                            <p>El monto a pagar por los servicios totales es de <strong>$${this.calculador.costoTotal()}
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar Compra</button>
+                            <button type="submit" class="btn btn-outline-secondary" name="comprar" id="realizarCompra" value="Submit">Realizar Compra</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>`
@@ -305,6 +323,14 @@ export class InterfazCarrito{
         botonComprar.forEach((btn) => {
             btn.onclick = () => {
                 modalElemento.show();
+            };
+        });
+        const botonRealizarCompra = document.querySelectorAll("#realizarCompra");
+        botonRealizarCompra.forEach((btn) => {
+            btn.onclick = () => {
+                let valorCuotaElegida = document.querySelector('input[name="cuotas"]:checked').value;
+                console.log(typeof valorCuotaElegida);
+                alert("El valor total fue divido en "+ valorCuotaElegida + " cuotas de $" + this.calculador.calcularCuotas(parseInt(valorCuotaElegida)) + " cada una.");
             };
         });
     }
@@ -441,8 +467,5 @@ export class InterfazCatalogo{
                 }
             };            
         });
-    }
-    cargarBotonCompra(){
-
     }
 }
