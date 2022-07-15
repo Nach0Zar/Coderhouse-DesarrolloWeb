@@ -230,27 +230,27 @@ export class InterfazCarrito{
                             <p>¿Estas a punto de finalizar tu compra, estás seguro de querer hacerlo?
                             <p>Confirmar que su información de contacto es la correcta. De no ser asi, modificarla desde su perfil.
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-1">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">@</span>
                                         </div>
-                                    <input type="text" class="form-control" placeholder="Nombre de Usuario" readonly="readonly">
+                                    <input type="text" class="form-control" placeholder="Nombre de Usuario" name="username" default="username" readonly="readonly" default="nach0zar">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-1">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Mail de contacto</span>
                                         </div>
-                                    <input type="email" class="form-control" placeholder="Mail del usuario" readonly="readonly">
+                                    <input type="email" class="form-control" placeholder="Mail del usuario" name="email" default="email" readonly="readonly" default="ignaciozarlenga@hotmail.com">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-1">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Nombre</span>
                                         </div>
-                                    <input type="text" class="form-control" placeholder="Nombre del usuario" readonly="readonly">
+                                    <input type="text" class="form-control" placeholder="Nombre del usuario" name="nombre" default="nombre" readonly="readonly" default="Ignacio">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -258,56 +258,60 @@ export class InterfazCarrito{
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Apellido</span>
                                         </div>
-                                    <input type="text" class="form-control" placeholder="Apellido del usuario" readonly="readonly">
+                                    <input type="text" class="form-control" placeholder="Apellido del usuario" name="apellido" default="apellido" readonly="readonly" default="Zarlenga">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group mb-1">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Tarjeta del usuario</span>
                                         </div>
-                                    <input type="number" class="form-control" placeholder="XXXXXXXXXXXXXXXXXXX" required>
+                                    <input type="number" class="form-control" maxlength="16" oninput="this.value=this.value.slice(0,this.maxLength)" placeholder="XXXXXXXXXXXXXXXX" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-1">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" id="basic-addon1">Fecha de Vto.</span>
+                                        </div>
+                                        <input type="month" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text" id="basic-addon1">Fecha de Vto.</span>
-                                        </div>
-                                        <input type="month" class="form-control" placeholder="YYYY-MM" required>
-                                        <div class="input-group-prepend">
                                             <span class="input-group-text" id="basic-addon1">Codigo de seguridad</span>
                                         </div>
-                                        <input type="text" class="form-control" placeholder="XXXX" required>
+                                        <input type="number" maxlength="4" oninput="this.value=this.value.slice(0,this.maxLength)" class="form-control" placeholder="XXXX" required>
                                     </div>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <div class="input-group">
+                                    <div class="input-group mb-1">
                                         <div class="input-group-text">
                                             <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="1" checked="checked">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="1 Cuota sin interés" readonly="readonly">
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="1 Cuota sin interés" readonly="readonly" disabled >
                                     </div>
-                                    <div class="input-group">
+                                    <div class="input-group mb-1">
                                         <div class="input-group-text">
                                             <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="3">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="3 Cuotas sin interés" readonly="readonly">
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="3 Cuotas sin interés" readonly="readonly" disabled >
                                     </div>
-                                    <div class="input-group">
+                                    
+                                    <div class="input-group mb-1">
                                         <div class="input-group-text">
                                             <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="6">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="6 Cuotas sin interés" readonly="readonly">
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="6 Cuotas sin interés" readonly="readonly" disabled >
                                     </div>
                                     <div class="input-group">
                                         <div class="input-group-text">
                                             <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="12">
                                         </div>
-                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="12 Cuotas sin interés" readonly="readonly">
+                                        <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="12 Cuotas sin interés" readonly="readonly" disabled >
                                     </div>
                                 </div>
-                            <br> 
                             <p>El monto a pagar por los servicios totales es de <strong>$${this.calculador.costoTotal()}
                         </div>
                         <div class="modal-footer">
@@ -325,14 +329,25 @@ export class InterfazCarrito{
                 modalElemento.show();
             };
         });
-        const botonRealizarCompra = document.querySelectorAll("#realizarCompra");
-        botonRealizarCompra.forEach((btn) => {
-            btn.onclick = () => {
-                let valorCuotaElegida = document.querySelector('input[name="cuotas"]:checked').value;
-                console.log(typeof valorCuotaElegida);
-                alert("El valor total fue divido en "+ valorCuotaElegida + " cuotas de $" + this.calculador.calcularCuotas(parseInt(valorCuotaElegida)) + " cada una.");
-            };
+        //por ahora va de 1 en 1 hasta ver la siguiente clase para poder tomar posts
+        let exampleForm =  document.querySelector('form');
+        exampleForm.addEventListener('submit', event => {
+        event.preventDefault();
+        let inputElements = exampleForm.querySelectorAll("input");
+        let cuotas;
+        inputElements.forEach(function(input) {
+            if(input.name == "cuotas" && input.checked){
+                cuotas = input.value;
+                console.log(input.type +" "+ input.value);
+            }
+            else{
+                if(!(input.disabled || input.type == "radio")){
+                    console.log(input.type +" "+ input.value);
+                }
+            }
         });
+        alert("El valor total fue divido en "+ cuotas + " cuotas de $" + this.calculador.calcularCuotas(parseInt(cuotas)) + " cada una, ya que el valor total es de $" + this.calculador.costoTotal());
+    });
     }
     borrarArticulosListado(){
         const listaCarrito = document.getElementById('listaCarrito');
