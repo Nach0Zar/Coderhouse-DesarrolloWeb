@@ -385,8 +385,12 @@ $spans:(
     }
     
   }
-#containerTicket{
+#containerTicketBoton{
     margin: 0 auto;
+}
+#containerBotonCompra{
+    @extend .elementoCarrito;
+    border: none;
 }
 .containerBotonElemento{
     display: flex;
@@ -453,5 +457,5 @@ $spans:(
     display: flex;
 }
 .containerBoton{
-    margin: auto 0;
+    margin: auto auto;
 }

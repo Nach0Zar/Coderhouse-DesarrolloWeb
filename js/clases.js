@@ -156,7 +156,7 @@ export class InterfazCarrito{
                         <div class="tituloPrecioCarrito">
                             <h4 class="nombreElemento">No se selecciono ningun elemento</h4>
                             <h5 class="precioElemento"></h5>
-                            <p class="descripcionElemento" hidden>Pack para inicio de clases. 50 Lapices para colorear y de regalo un pack de goma y sacapuntas</p>
+                            <p class="descripcionElemento" hidden></p>
                         </div>
                     </div>
                 </div>`
@@ -211,6 +211,102 @@ export class InterfazCarrito{
         }
         subtotalTicket.innerHTML += `<div class='containerElementosResumen'><div class='nombreElementoTicket'>Sub-Total</div><div class='precioElementoTicket'>$${this.calculador.costoSubTotal()}</div></div><div class='containerElementosResumen'><div class='nombreElementoTicket'>Costo Servicio</div><div class='precioElementoTicket'>$${this.calculador.costoServicios()}</div></div>`;
         totalTicket.innerHTML += `<div class='containerElementosResumen'><div class='nombreElementoTicket'>TOTAL</div><div class='precioElementoTicket'>$${this.calculador.costoTotal()}</div></div>`;
+        let estilo;
+        (this.calculador.getCarritoCompras().getArticulosSeleccionados().length > 0) ? estilo = "btn-outline-dark" : estilo = "btn-secondary disabled";
+        let containerBoton = document.getElementById('containerBotonCompra');
+        containerBoton.innerHTML = 
+        `<div class="containerBoton">                        
+            <button type="button" class="btn ${estilo}" id="botonCompra">Realizar compra</button>
+        </div>
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Realizar compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body centered">
+                        <p>¿Estas a punto de finalizar tu compra, estás seguro de querer hacerlo?
+                        <p>Confirmar que su información de contacto es la correcta. De no ser asi, modificarla desde su perfil.
+                        <form class="form-horizontal" role="form" method="POST" action="">
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">@</span>
+                                    </div>
+                                <input type="text" class="form-control" placeholder="Nombre de Usuario" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Mail de contacto</span>
+                                    </div>
+                                <input type="email" class="form-control" placeholder="Mail del usuario" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Nombre</span>
+                                    </div>
+                                <input type="text" class="form-control" placeholder="Nombre del usuario" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Apellido</span>
+                                    </div>
+                                <input type="text" class="form-control" placeholder="Apellido del usuario" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">Apellido</span>
+                                    </div>
+                                <input type="text" class="form-control" placeholder="Apellido del usuario" readonly="readonly">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="3">
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="3 Cuotas sin interés" readonly="readonly">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="6">
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="6 Cuotas sin interés" readonly="readonly">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-text">
+                                        <input class="form-check-input mt-0" type="radio" name="cuotas" aria-label="Radio button for following text input" value="12">
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="12 Cuotas sin interés" readonly="readonly">
+                                </div>
+                            </div>
+                        <br> 
+                        <p>El monto a pagar por los servicios totales es de <strong>$${this.calculador.costoTotal()}
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar Compra</button>
+                        <button type="submit" class="btn btn-outline-secondary" name="comprar" value="Comprar">Realizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>`
+        let modalElemento = new bootstrap.Modal(document.querySelector(".modal"));
+        const botonComprar = document.querySelectorAll("#botonCompra");
+        botonComprar.forEach((btn) => {
+            btn.onclick = () => {
+                modalElemento.show();
+            };
+        });
     }
     borrarArticulosListado(){
         const listaCarrito = document.getElementById('listaCarrito');
@@ -345,5 +441,8 @@ export class InterfazCatalogo{
                 }
             };            
         });
+    }
+    cargarBotonCompra(){
+
     }
 }

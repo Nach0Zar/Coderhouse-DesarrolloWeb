@@ -281,7 +281,7 @@ h1 {
   padding: 10px 10px;
 }
 
-.elemento, .elementoCarrito, #barraLateral {
+.elemento, .elementoCarrito, #containerBotonCompra, #barraLateral {
   border: 1px lightgrey solid;
 }
 
@@ -306,7 +306,7 @@ h1 {
   column-gap: 50px;
 }
 
-.elemento, .elementoCarrito {
+.elemento, .elementoCarrito, #containerBotonCompra {
   display: flex;
 }
 
@@ -408,7 +408,7 @@ h1 {
 }
 
 @media screen and (min-width: 1200px) {
-  .elemento, .elementoCarrito {
+  .elemento, .elementoCarrito, #containerBotonCompra {
     flex-flow: row nowrap;
   }
 
@@ -417,7 +417,7 @@ h1 {
   }
 }
 @media screen and (max-width: 700px) {
-  .elemento, .elementoCarrito, .containerBotones, .tituloPrecioCarrito {
+  .elemento, .elementoCarrito, #containerBotonCompra, .containerBotones, .tituloPrecioCarrito {
     flex-flow: column wrap;
   }
 
@@ -431,12 +431,16 @@ h1 {
     justify-content: space-around;
   }
 
-  .elementoCarrito {
+  .elementoCarrito, #containerBotonCompra {
     max-width: 750px;
   }
 }
-#containerTicket {
+#containerTicketBoton {
   margin: 0 auto;
+}
+
+#containerBotonCompra {
+  border: none;
 }
 
 .containerBotonElemento {
@@ -502,7 +506,7 @@ h1 {
 }
 
 .containerBoton {
-  margin: auto 0;
+  margin: auto auto;
 }
 
 /*# sourceMappingURL=style.css.map */
