@@ -316,7 +316,6 @@ $spans:(
 }
 .containerImagen{
     display: flex;
-    border-right: 1px lightgrey solid;
     max-width: 201px;
 }
 
@@ -373,7 +372,13 @@ $spans:(
     }
     
   }
-  @media screen and (max-width: 700px) {
+
+@media screen and (min-width: 750px) {
+    .containerImagen{
+        border-right: 1px lightgrey solid;
+    }
+}
+  @media screen and (max-width: 750px) {
     .elemento, .elementoCarrito, .containerBotones, .tituloPrecioCarrito {
       flex-flow: column wrap;
     }
@@ -390,7 +395,10 @@ $spans:(
       max-width: 750px;
       min-width: 750px;
     }
-    
+    .containerCantidadBotones{
+        display: flex;
+        margin: 10px auto;
+    }
   }
 #containerTicketBoton{
     margin: 0 auto;
@@ -479,6 +487,8 @@ input::-webkit-inner-spin-button {
 
 }
 #info{
+    visibility: hidden;
+    opacity: 0;
     position: absolute;
     bottom: 0;
     width: 400px;
@@ -487,8 +497,6 @@ input::-webkit-inner-spin-button {
     box-sizing: border-box;
     border-radius: 4px;
     border: 1px lightgrey solid;
-    visibility: hidden;
-    opacity: 0;
     transition: 0.5s;
     transform: translateX(-30%) translateY(-50px);
     z-index: 1;

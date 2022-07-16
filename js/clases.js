@@ -124,7 +124,7 @@ export class InterfazCarrito{
                     </div>
                     <div class="containerBotones">
                         <div class="containerCantidad">
-                            <div class="container">
+                            <div class="containerCantidadBotones">
                                 <div class="input-group w-auto align-items-center">
                                     <input type="button" value="-" class="botonRestar" id="boton${id}">
                                     <div class="cantidadElemento">${cantidad}</div>
@@ -430,7 +430,6 @@ export class InterfazCatalogo{
         readTextFile("../json/catalogo.json", function(texto){
             let articulosArchivo = JSON.parse(texto); //parse JSON
             sessionStorage.setItem('json',JSON.stringify(articulosArchivo.articulos));
-            console.log(JSON.parse(sessionStorage.getItem('json')));
         });
         for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
             let {nombreArticulo, descripcion ,precio, imgSrc} = articulo;
