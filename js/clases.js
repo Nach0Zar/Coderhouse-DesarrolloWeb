@@ -418,19 +418,7 @@ export class InterfazCatalogo{
     }
     //leo el json con el listado de articulos, los creo como objetos Articulo y los agrego al listado
     cargarArticulosArchivo(){
-        function readTextFile(file, callback) {
-            let rawFile = new XMLHttpRequest();
-            rawFile.overrideMimeType("application/json");
-            rawFile.open("GET", file, false);
-            rawFile.onreadystatechange = function() {
-                (rawFile.readyState === 4 && rawFile.status == "200") && callback(rawFile.responseText);
-            }
-            rawFile.send(null);
-        }
-        readTextFile("../json/catalogo.json", function(texto){
-            let articulosArchivo = JSON.parse(texto); //parse JSON
-            sessionStorage.setItem('json',JSON.stringify(articulosArchivo.articulos));
-        });
+        (sessionStorage.getItem('json') == null) && fetch('../json/catalogo.json').then((respuesta)=> respuesta.json()).then((json) => sessionStorage.setItem('json',JSON.stringify(json.articulos)))
         for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
             let {nombreArticulo, descripcion ,precio, imgSrc} = articulo;
             const articuloObjeto = new Articulo (nombreArticulo, descripcion, precio, imgSrc, 1)
