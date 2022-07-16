@@ -7,3 +7,4 @@ if (!(sessionStorage.getItem('ListadoItems')==null || sessionStorage.getItem('Li
 }
 interfaz.cargarArticulosListado();
 interfaz.cargarTicketArticulos();
+console.log(JSON.parse(sessionStorage.getItem('ListadoItems')));

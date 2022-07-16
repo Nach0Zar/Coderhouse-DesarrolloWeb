@@ -1,8 +1,9 @@
 export class Articulo{
     static idCounter = 0;
-    constructor(nombreArticulo, descripcion, precio, imgSrc, cantidad){
-        this.id = Articulo.getIdCounter();
-        Articulo.idCounter++;
+    constructor(nombreArticulo, descripcion, precio, imgSrc, cantidad, id){
+        (id == 0) ? (this.id = Articulo.getIdCounter(),
+            Articulo.idCounter++) : (this.id = id);
+        
         this.nombreArticulo = nombreArticulo;
         this.descripcion = descripcion;
         this.precio = parseInt(precio);
@@ -97,9 +98,9 @@ export class InterfazCarrito{
         this.calculador = new Calculador();
     }
     crearArticulos(listadoItems){
-        for (const item of listadoItems){ 
-            let {nombreArticulo, descripcion ,precio, imgSrc, cantidad} = item;
-            let articulo = new Articulo(nombreArticulo, descripcion, precio, imgSrc, cantidad);
+        for (const item of listadoItems){
+            let {id, nombreArticulo, descripcion, precio, imgSrc, cantidad} = item;
+            let articulo = new Articulo(nombreArticulo, descripcion, precio, imgSrc, cantidad, id);
             this.calculador.getCarritoCompras().agregarArticulo(articulo);
         }
     }
@@ -418,12 +419,27 @@ export class InterfazCatalogo{
     }
     //leo el json con el listado de articulos, los creo como objetos Articulo y los agrego al listado
     cargarArticulosArchivo(){
-        (sessionStorage.getItem('json') == null) && fetch('../json/catalogo.json').then((respuesta)=> respuesta.json()).then((json) => sessionStorage.setItem('json',JSON.stringify(json.articulos)))
-        for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
-            let {nombreArticulo, descripcion ,precio, imgSrc} = articulo;
-            const articuloObjeto = new Articulo (nombreArticulo, descripcion, precio, imgSrc, 1)
-            this.articulos.push(articuloObjeto);
+        const crearArticulos = () => {
+            for(const articulo of JSON.parse(sessionStorage.getItem('json'))){
+                let {nombreArticulo, descripcion ,precio, imgSrc} = articulo;
+                const articuloObjeto = new Articulo (nombreArticulo, descripcion, precio, imgSrc, 1, 0)
+                this.articulos.push(articuloObjeto);
+            }
         }
+        const cargarData = async () => {
+            const fetchData = await fetch('../json/catalogo.json').then((respuesta) => respuesta.json()).then((json) => {
+                sessionStorage.setItem('json',JSON.stringify(json.articulos))
+            })
+            crearArticulos();
+            if (!(sessionStorage.getItem('ListadoItems')==null || sessionStorage.getItem('ListadoItems')=="[]")){
+                let articulosAgregados;
+                articulosAgregados = JSON.parse(sessionStorage.getItem('ListadoItems'));
+                this.cargarArticulosAgregados(articulosAgregados);
+            }
+            this.cargarArticulosListado();
+        };
+        cargarData();
+        
     }
     cargarArticulosAgregados(articulosAgregados){
         for(let articuloCambiar of articulosAgregados){
