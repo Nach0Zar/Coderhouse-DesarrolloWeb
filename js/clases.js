@@ -478,7 +478,6 @@ export class InterfazCatalogo{
             let br = document.createElement("br");
             catalogo.append(elemento);
             catalogo.append(br.cloneNode(true));
-            
         }
         let botonesAgregar = document.querySelectorAll(".botonAgregarCarrito");
         botonesAgregar.forEach((btn) => {
